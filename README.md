@@ -1,2 +1,2 @@
-# OOP-Lab
-OOP Lab
+# OOP-Laboratory
+## Repository for laboratory works :)
