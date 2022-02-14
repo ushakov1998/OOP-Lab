@@ -2,6 +2,7 @@
 
 namespace Model
 {
+    //TODO: XML
     public class RandomPerson
     {
         /// <summary>
@@ -10,6 +11,7 @@ namespace Model
         /// <returns> Человек со случайными данными</returns>
         public static Person GetRandomPerson()
         {
+            //TODO: RSDN
             string[] _maleName = new string[]
             {
                 "Hidan", "Isaac", "Deidara", "Morty",
