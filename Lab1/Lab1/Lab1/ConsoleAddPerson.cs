@@ -15,7 +15,7 @@ namespace View
         /// <returns>Новая персона</returns>
         public static Person ReadPerson()
         {
-            Person newPerson = new Person("Ivan", "Ivanovich", 45, Gender.Female);
+            Person newPerson = new Person("Ivan", "Ivanovich", 45, Gender.Male);
             List<Action> actions = new List<Action>()
             {
                 new Action(() =>
