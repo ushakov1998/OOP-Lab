@@ -15,14 +15,7 @@ namespace Model
         /// <summary>
         /// Количество всех персон
         /// </summary>
-        public int NumberOfPersons
-        {
-            get
-            { 
-                return _personArray.Length;
-            }
-            
-        }
+        public int NumberOfPersons => _personArray.Length;
 
         /// <summary>
         /// Добавление человека в список
@@ -66,11 +59,10 @@ namespace Model
 
             for (int i = 0; i < tempArray.Length; i++)
             {
-                if (i != index)
-                {
-                    _personArray[tempIndex] = tempArray[i];
-                    tempIndex++;
-                }
+                if (i == index) continue;
+
+                _personArray[tempIndex] = tempArray[i];
+                tempIndex++;
             }
 
         }
@@ -88,11 +80,13 @@ namespace Model
             }
             else
             {
+                //TODO: outofrangeexception?
                 throw new Exception("The index doesn't exist!");
             }
         }
 
-        
+        //TODO: XML
+        //TODO: naming
         public void AddPersonsArray(Person[] persons)
         {
             foreach (Person person in persons)
@@ -100,9 +94,5 @@ namespace Model
                 AddPerson(person);
             }
         }
-
-
-
-
     }
 }

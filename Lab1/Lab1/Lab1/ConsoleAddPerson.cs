@@ -53,6 +53,7 @@ namespace View
             return newPerson;
         }
 
+        //TODO: XML
         public static void SetValue(Action action)
         {
             while (true)
@@ -68,7 +69,5 @@ namespace View
                 }
             }
         }
-
-
     }
 }

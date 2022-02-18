@@ -29,10 +29,7 @@ namespace Model
         /// </summary>
         public string Name
         {
-            get
-            {
-                return _name;
-            }
+            get => _name;
             set
             {
                 CheckNameAndSurname(value);
@@ -45,10 +42,7 @@ namespace Model
         /// </summary>
         public string Surname
         {
-            get
-            {
-                return _surname;
-            }
+            get => _surname;
             set
             {
                 CheckNameAndSurname(value);
@@ -69,6 +63,7 @@ namespace Model
             }
             else if (!IsNameAndSurnameCorrect(value))
             {
+                //TODO: RSDN
                 throw new Exception("Name or surname have to contain only Cyrillic or Latin symbols!");
             }
             else
@@ -85,12 +80,14 @@ namespace Model
         /// проверки</returns>
         private static bool IsNameAndSurnameCorrect(string value)
         {
+            //TODO: RSDN
             var Regex = new Regex("^([A-Za-z]|[А-Яа-я])+(((-| )?([A-Za-z]|" +
                                   "[А-Яа-я])+))?$");
 
             return Regex.IsMatch(value);
         }
 
+        //TODO: naming
         /// <summary>
         /// Проверка регистра и (двойных имен - еще не сделал)
         /// </summary>
@@ -98,6 +95,7 @@ namespace Model
         /// <returns></returns>
         private string ConvertToRigthRegister(string value)
         {
+            //TODO:
             string FirstLetterToUpper(string name)
             {
                 return name.Substring(0, 1).ToUpper() +
@@ -116,10 +114,7 @@ namespace Model
         /// </summary>
         public int Age
         {
-            get
-            {
-                return _age;
-            }
+            get => _age;
             set
             {
                 ChekingAge(value);
@@ -127,6 +122,7 @@ namespace Model
             }
         }
 
+        //TODO: naming
         /// <summary>
         /// Проверка для ввода возраста
         /// </summary>
@@ -136,6 +132,7 @@ namespace Model
         {
             if (number < 0 || number > MaxAge)
             {
+                //TODO: ArgumentException?
                 throw new Exception($"The age must between 0 and {MaxAge} years!");
             }
             else
@@ -164,6 +161,7 @@ namespace Model
             Gender = gender;
         }
 
+        //TODO: naming
         /// <summary>
         /// Проверка ввода пола
         /// </summary>
@@ -173,6 +171,7 @@ namespace Model
         {
             if (number < 0 || number > 1)
             {
+                //TODO:
                 throw new Exception("Enter 0 or 1. 0 - Male, 1 - Female");
             }
             else
@@ -184,12 +183,6 @@ namespace Model
         /// <summary>
         /// Информация о человеке
         /// </summary>
-        public string Info
-        {
-            get
-            {
-                return $"{Name} {Surname}, Age: {Age}, Gender: {Gender}";
-            }
-        }
+        public string Info => $"{Name} {Surname}, Age: {Age}, Gender: {Gender}";
     }
 }
