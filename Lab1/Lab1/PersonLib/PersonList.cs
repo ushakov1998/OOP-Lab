@@ -49,6 +49,7 @@ namespace Model
         /// <param name="index">индекс</param>
         public void DeleteByIndex(int index)
         {
+            //TODO: дубль
             if (index < 0 || index > _personArray.Length - 1)
             {
                 throw new Exception(" You entered an invalid index!");
@@ -81,13 +82,11 @@ namespace Model
             }
             else
             {
-                //TODO: outofrangeexception?
-                throw new ArgumentOutOfRangeException();
+                //TODO: сообщение
+                throw new ArgumentOutOfRangeException("");
             }
         }
-
-        //TODO: XML
-        //TODO: naming
+        
         /// <summary>
         /// Добавление нескольких персон
         /// </summary>

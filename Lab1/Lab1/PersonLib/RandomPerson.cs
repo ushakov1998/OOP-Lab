@@ -2,11 +2,10 @@
 
 namespace Model
 {
-    //TODO: XML
     /// <summary>
     /// Класc Рандомная персона
     /// </summary>
-    public class RandomPerson
+    public static class RandomPerson
     {
         /// <summary>
         /// Генератор случайного человека
@@ -14,7 +13,6 @@ namespace Model
         /// <returns> Человек со случайными данными</returns>
         public static Person GetRandomPerson()
         {
-            //TODO: RSDN
             string[] maleName = new string[]
             {
                 "Hidan", "Isaac", "Deidara", "Morty",

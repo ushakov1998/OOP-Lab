@@ -52,8 +52,7 @@ namespace View
             actions.ForEach(SetValue);
             return newPerson;
         }
-
-        //TODO: XML
+        
         /// <summary>
         /// Задание параметров
         /// </summary>

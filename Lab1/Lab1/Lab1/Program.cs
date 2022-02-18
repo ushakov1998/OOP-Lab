@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Model;
 namespace View
 {
@@ -34,7 +35,7 @@ namespace View
             secondListOfPerson.AddArrayOfPeople(secondArray);
 
             Console.WriteLine("2. Displaying the contents");
-            ShowLists(firstListOfPerson,secondListOfPerson);
+            ShowLists(firstListOfPerson, secondListOfPerson);
             Console.WriteLine();
 
             Console.WriteLine("3. Add a new person to the first list");
@@ -86,25 +87,19 @@ namespace View
         /// <summary>
         /// Вывод списка персон
         /// </summary>
-        /// <param name="firstListOfPerson">Первый список</param>
-        /// <param name="secondListOfPerson">Второй список</param>
-        public static void ShowLists(PersonList firstListOfPerson, PersonList secondListOfPerson)
+        /// <param name="listsOfPerson">Массив списков</param>
+        public static void ShowLists(params PersonList[] listsOfPerson)
         {
-            var personLists = new PersonList[]
-            {
-                firstListOfPerson,
-                secondListOfPerson
-            };
             Console.ReadKey();
-            for (int i = 0; i < personLists.Length; i++)
+            for (int i = 0; i < listsOfPerson.Length; i++)
             {
                 Console.WriteLine();
                 Console.WriteLine($"List {i + 1}");
                 Console.WriteLine();
 
-                for (int j = 0; j < personLists[i].NumberOfPersons; j++)
+                for (int j = 0; j < listsOfPerson[i].NumberOfPersons; j++)
                 {
-                    Console.WriteLine(personLists[i].FindByIndex(j).Info);
+                    Console.WriteLine(listsOfPerson[i].FindByIndex(j).Info);
                 }
             }
             Console.ReadKey();
