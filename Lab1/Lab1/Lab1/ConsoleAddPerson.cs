@@ -44,7 +44,7 @@ namespace View
                 {
                     Console.Write("Gender (0 - Male, 1 - Female): ");
                     int gender = Int32.Parse(Console.ReadLine());
-                    Person.ChekingGender(gender);
+                    Person.CheсkGender(gender);
                     newPerson.Gender = (Gender) Enum.Parse(
                         typeof(Gender), Convert.ToString(gender));
                 }),
@@ -54,6 +54,9 @@ namespace View
         }
 
         //TODO: XML
+        /// <summary>
+        /// Задание параметров
+        /// </summary>
         public static void SetValue(Action action)
         {
             while (true)

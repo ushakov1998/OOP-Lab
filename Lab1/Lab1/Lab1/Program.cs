@@ -30,23 +30,64 @@ namespace View
                 new Person("Uzumaki", "Naruto", 23, Gender.Male),
             };
 
-            firstListOfPerson.AddPersonsArray(firstArray);
-            secondListOfPerson.AddPersonsArray(secondArray);
+            firstListOfPerson.AddArrayOfPeople(firstArray);
+            secondListOfPerson.AddArrayOfPeople(secondArray);
 
             Console.WriteLine("2. Displaying the contents");
             ShowLists(firstListOfPerson,secondListOfPerson);
             Console.WriteLine();
 
-            Console.WriteLine("N. Test ConsoleAdd");
-           
+            Console.WriteLine("3. Add a new person to the first list");
+            firstListOfPerson.AddPerson(new Person("Gretta", "Tumberg", 96, Gender.Female));
+            ShowLists(firstListOfPerson, secondListOfPerson);
             Console.WriteLine();
-            secondListOfPerson.AddPerson(ConsoleAddPerson.ReadPerson());
-            ShowLists(firstListOfPerson,secondListOfPerson);
+            Console.ReadKey();
+
+            Console.WriteLine();
+            Console.WriteLine("4. Copy the second person from the first list" + 
+                              " to the end of the second list");
+            secondListOfPerson.AddPerson(firstListOfPerson.FindByIndex(1));
+            ShowLists(firstListOfPerson, secondListOfPerson);
+            Console.WriteLine();
+            Console.ReadKey();
+
+            Console.WriteLine("5. Delete the second person from the first list!");
+            firstListOfPerson.DeleteByIndex(1);
+            ShowLists(firstListOfPerson, secondListOfPerson);
+            Console.WriteLine();
+            Console.ReadKey();
+
+            Console.WriteLine("6. Clear the first list");
+            firstListOfPerson.DeleteAllPerson();
+            ShowLists(firstListOfPerson, secondListOfPerson);
+            Console.WriteLine();
+            Console.ReadKey();
+
+            Console.WriteLine("7. Add new person to the first list " +
+                              "from keyboard");
+            Console.WriteLine();
+            firstListOfPerson.AddPerson(ConsoleAddPerson.ReadPerson());
+            ShowLists(firstListOfPerson, secondListOfPerson);
+            Console.WriteLine();
+            Console.ReadKey();
+
+
+
+
+
+            //Console.WriteLine();
+            //secondListOfPerson.AddPerson(ConsoleAddPerson.ReadPerson());
+            //ShowLists(firstListOfPerson,secondListOfPerson);
 
 
 
         }
 
+        /// <summary>
+        /// Вывод списка персон
+        /// </summary>
+        /// <param name="firstListOfPerson">Первый список</param>
+        /// <param name="secondListOfPerson">Второй список</param>
         public static void ShowLists(PersonList firstListOfPerson, PersonList secondListOfPerson)
         {
             var personLists = new PersonList[]

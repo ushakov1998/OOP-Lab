@@ -33,7 +33,7 @@ namespace Model
             set
             {
                 CheckNameAndSurname(value);
-                _name = ConvertToRigthRegister(value);
+                _name = ConvertToCorrectRegister(value);
             }
         }
 
@@ -46,7 +46,7 @@ namespace Model
             set
             {
                 CheckNameAndSurname(value);
-                _surname = ConvertToRigthRegister(value);
+                _surname = ConvertToCorrectRegister(value);
             }
         }
 
@@ -64,7 +64,8 @@ namespace Model
             else if (!IsNameAndSurnameCorrect(value))
             {
                 //TODO: RSDN
-                throw new Exception("Name or surname have to contain only Cyrillic or Latin symbols!");
+                throw new Exception("Name or surname have to contain " + 
+                                    " only Cyrillic or Latin symbols!");
             }
             else
             {
@@ -81,19 +82,19 @@ namespace Model
         private static bool IsNameAndSurnameCorrect(string value)
         {
             //TODO: RSDN
-            var Regex = new Regex("^([A-Za-z]|[А-Яа-я])+(((-| )?([A-Za-z]|" +
+            var regex = new Regex("^([A-Za-z]|[А-Яа-я])+(((-| )?([A-Za-z]|" +
                                   "[А-Яа-я])+))?$");
 
-            return Regex.IsMatch(value);
+            return regex.IsMatch(value);
         }
 
-        //TODO: naming
+        //TODO: naming 
         /// <summary>
         /// Проверка регистра и (двойных имен - еще не сделал)
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
-        private string ConvertToRigthRegister(string value)
+        private string ConvertToCorrectRegister(string value)
         {
             //TODO:
             string FirstLetterToUpper(string name)
@@ -117,7 +118,7 @@ namespace Model
             get => _age;
             set
             {
-                ChekingAge(value);
+                CheckingAge(value);
                 _age = value;
             }
         }
@@ -128,12 +129,12 @@ namespace Model
         /// </summary>
         /// <param name="number">Возраст для проверки</param>
         /// <returns>Корректный возраст</returns>
-        public static int ChekingAge(int number)
+        public static int CheckingAge(int number)
         {
             if (number < 0 || number > MaxAge)
             {
                 //TODO: ArgumentException?
-                throw new Exception($"The age must between 0 and {MaxAge} years!");
+                throw new ArgumentException($"The age must between 0 and {MaxAge} years!");
             }
             else
             {
@@ -167,12 +168,12 @@ namespace Model
         /// </summary>
         /// <param name="number">Цифра пола</param>
         /// <returns></returns>
-        public static int ChekingGender(int number)
+        public static int CheсkGender(int number)
         {
             if (number < 0 || number > 1)
             {
                 //TODO:
-                throw new Exception("Enter 0 or 1. 0 - Male, 1 - Female");
+                throw new ArgumentException("Enter 0 or 1. 0 - Male, 1 - Female");
             }
             else
             {

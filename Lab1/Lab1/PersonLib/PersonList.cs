@@ -56,6 +56,7 @@ namespace Model
 
             var tempArray = _personArray;
             var tempIndex = 0;
+            _personArray = new Person[tempArray.Length - 1];
 
             for (int i = 0; i < tempArray.Length; i++)
             {
@@ -81,13 +82,17 @@ namespace Model
             else
             {
                 //TODO: outofrangeexception?
-                throw new Exception("The index doesn't exist!");
+                throw new ArgumentOutOfRangeException();
             }
         }
 
         //TODO: XML
         //TODO: naming
-        public void AddPersonsArray(Person[] persons)
+        /// <summary>
+        /// Добавление нескольких персон
+        /// </summary>
+        /// <param name="persons">Массив людей</param>
+        public void AddArrayOfPeople(Person[] persons)
         {
             foreach (Person person in persons)
             {
