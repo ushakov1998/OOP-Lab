@@ -70,17 +70,15 @@ namespace View
             firstListOfPerson.AddPerson(ConsoleAddPerson.ReadPerson());
             ShowLists(firstListOfPerson, secondListOfPerson);
             Console.WriteLine();
+
+            Console.WriteLine("8. Add random person " + 
+                              "to the second list");
+            Person randPerson = RandomPerson.GetRandomPerson();
+            firstListOfPerson.AddPerson(randPerson);
+            ShowLists(firstListOfPerson, secondListOfPerson);
+            Console.WriteLine();
+            Console.WriteLine("Press any key to exit :) ");
             Console.ReadKey();
-
-
-
-
-
-            //Console.WriteLine();
-            //secondListOfPerson.AddPerson(ConsoleAddPerson.ReadPerson());
-            //ShowLists(firstListOfPerson,secondListOfPerson);
-
-
 
         }
 

@@ -82,8 +82,8 @@ namespace Model
             }
             else
             {
-                //TODO: сообщение
-                throw new ArgumentOutOfRangeException("");
+                //TODO: сообщение +
+                throw new ArgumentOutOfRangeException("Index out of range!");
             }
         }
         
