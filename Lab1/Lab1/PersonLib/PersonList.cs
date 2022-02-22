@@ -49,7 +49,6 @@ namespace Model
         /// <param name="index">индекс</param>
         public void DeleteByIndex(int index)
         {
-            //TODO: дубль+
             if (CheckRangeOfIndex(index))
             {
                 var tempArray = _personArray;
@@ -75,7 +74,10 @@ namespace Model
         private bool CheckRangeOfIndex(int index)
         {
             if (index < 0 || index >= _personArray.Length)
+            {
                 throw new ArgumentOutOfRangeException("Index out of range!");
+            }
+
             return true;
         }
 
@@ -86,9 +88,9 @@ namespace Model
         /// <returns>Значение по указанному индексу</returns>
         public Person FindByIndex(int index)
         {
-            if (CheckRangeOfIndex(index))
-                return _personArray[index];
-            throw new ArgumentOutOfRangeException("Index out of range!");
+            CheckRangeOfIndex(index);
+            
+            return _personArray[index];
         }
         
         /// <summary>

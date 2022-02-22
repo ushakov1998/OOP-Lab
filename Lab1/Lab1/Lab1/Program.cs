@@ -39,7 +39,8 @@ namespace View
             Console.WriteLine();
 
             Console.WriteLine("3. Add a new person to the first list");
-            firstListOfPerson.AddPerson(new Person("Gretta", "Tumberg", 96, Gender.Female));
+            firstListOfPerson.AddPerson(
+                new Person("Gretta", "Tumberg", 96, Gender.Female));
             ShowLists(firstListOfPerson, secondListOfPerson);
             Console.WriteLine();
             Console.ReadKey();

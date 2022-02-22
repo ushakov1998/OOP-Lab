@@ -13,27 +13,27 @@ namespace Model
         /// <returns> Человек со случайными данными</returns>
         public static Person GetRandomPerson()
         {
-            string[] maleName = new string[]
+            var maleName = new string[]
             {
                 "Hidan", "Isaac", "Deidara", "Morty",
                 "Harry", "Itachi", "Nagato", "Pain"
             };
 
-            string[] femaleName = new string[]
+            var femaleName = new string[]
             {
                 "Anna", "Helga", "Germiona", "Mira",
                 "Konan", "Anastasia", "Ellen", "Eliza"
             };
 
-            string[] allSurname = new string[]
+            var allSurname = new string[]
             {
                 "Uciha", "Granger", "Potaki", "Riddle",
                 "Newton", "Potter", "Uzumaki", "Hanzo"
             };
 
-            Random random = new Random();
+            var random = new Random();
             string name;
-            Gender gender = (Gender) random.Next(0, 2);
+            var gender = (Gender) random.Next(0, 2);
             switch (gender)
             {
                 case Gender.Male:
@@ -46,8 +46,8 @@ namespace Model
                     return new Person("Ivan", "Ivanovich", 0, Gender.Male);
             }
 
-            string surname = allSurname[random.Next(allSurname.Length)];
-            int age = random.Next(0, Person.MaxAge);
+            var surname = allSurname[random.Next(allSurname.Length)];
+            var age = random.Next(0, Person.MaxAge);
             return new Person(name, surname, age, gender);
         }
     }

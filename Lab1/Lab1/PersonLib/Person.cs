@@ -93,7 +93,6 @@ namespace Model
         /// <returns></returns>
         private string ConvertToCorrectRegister(string value)
         {
-            //TODO:+
             string FirstLetterToUpper(string name)
             {
                 return name.Substring(0, 1).ToUpper() +
@@ -172,9 +171,6 @@ namespace Model
             Gender = gender;
         }
         
-        //TODO: вынести +
-        
-
         /// <summary>
         /// Информация о человеке
         /// </summary>
