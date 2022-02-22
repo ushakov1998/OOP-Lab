@@ -49,24 +49,34 @@ namespace Model
         /// <param name="index">индекс</param>
         public void DeleteByIndex(int index)
         {
-            //TODO: дубль
-            if (index < 0 || index > _personArray.Length - 1)
+            //TODO: дубль+
+            if (CheckRangeOfIndex(index))
             {
-                throw new Exception(" You entered an invalid index!");
-            }
+                var tempArray = _personArray;
+                var tempIndex = 0;
+                _personArray = new Person[tempArray.Length - 1];
 
-            var tempArray = _personArray;
-            var tempIndex = 0;
-            _personArray = new Person[tempArray.Length - 1];
+                for (int i = 0; i < tempArray.Length; i++)
+                {
+                    if (i == index) continue;
 
-            for (int i = 0; i < tempArray.Length; i++)
-            {
-                if (i == index) continue;
+                    _personArray[tempIndex] = tempArray[i];
+                    tempIndex++;
+                }
 
-                _personArray[tempIndex] = tempArray[i];
-                tempIndex++;
-            }
-
+            };
+            
+        }
+        /// <summary>
+        /// Проверка на валидность индекса
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        private bool CheckRangeOfIndex(int index)
+        {
+            if (index < 0 || index >= _personArray.Length)
+                throw new ArgumentOutOfRangeException("Index out of range!");
+            return true;
         }
 
         /// <summary>
@@ -76,15 +86,9 @@ namespace Model
         /// <returns>Значение по указанному индексу</returns>
         public Person FindByIndex(int index)
         {
-            if (index >= 0 && index < _personArray.Length)
-            {
+            if (CheckRangeOfIndex(index))
                 return _personArray[index];
-            }
-            else
-            {
-                //TODO: сообщение +
-                throw new ArgumentOutOfRangeException("Index out of range!");
-            }
+            throw new ArgumentOutOfRangeException("Index out of range!");
         }
         
         /// <summary>

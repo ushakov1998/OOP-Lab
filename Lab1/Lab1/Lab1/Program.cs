@@ -77,9 +77,8 @@ namespace View
             firstListOfPerson.AddPerson(randPerson);
             ShowLists(firstListOfPerson, secondListOfPerson);
             Console.WriteLine();
-            Console.WriteLine("Press any key to exit :) ");
+            Console.WriteLine("Thats All! Press any key to exit :) ");
             Console.ReadKey();
-
         }
 
         /// <summary>

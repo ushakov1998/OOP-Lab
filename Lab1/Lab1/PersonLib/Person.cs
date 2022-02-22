@@ -87,19 +87,33 @@ namespace Model
         }
         
         /// <summary>
-        /// Проверка регистра и (двойных имен - еще не сделал)
+        /// Проверка регистра и двойных имен
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
         private string ConvertToCorrectRegister(string value)
         {
-            //TODO:
+            //TODO:+
             string FirstLetterToUpper(string name)
             {
                 return name.Substring(0, 1).ToUpper() +
                        name.Substring(1, name.Length - 1).ToLower();
             }
 
+            var symbols = new[] {"-", " "};
+            foreach (var symbol in symbols)
+            {
+                if (value.Contains(symbol))
+                {
+                    int indexOfSymbol = value.IndexOf(symbol);
+                    return value.Substring(0, 1).ToUpper()
+                           + value.Substring(1, indexOfSymbol - 1).ToLower()
+                           + symbol
+                           + value.Substring(indexOfSymbol + 1, 1).ToUpper()
+                           + value.Substring(indexOfSymbol + 2).ToLower();
+                }
+
+            }
             return FirstLetterToUpper(value);
         }
         /// <summary>
@@ -158,23 +172,8 @@ namespace Model
             Gender = gender;
         }
         
-        //TODO: вынести
-        /// <summary>
-        /// Проверка ввода пола
-        /// </summary>
-        /// <param name="number">Цифра пола</param>
-        /// <returns></returns>
-        public static int CheсkGender(int number)
-        {
-            if (number < 0 || number > 1)
-            {
-                throw new ArgumentException("Enter 0 or 1. 0 - Male, 1 - Female");
-            }
-            else
-            {
-                return number;
-            }
-        }
+        //TODO: вынести +
+        
 
         /// <summary>
         /// Информация о человеке

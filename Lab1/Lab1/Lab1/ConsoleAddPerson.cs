@@ -44,7 +44,7 @@ namespace View
                 {
                     Console.Write("Gender (0 - Male, 1 - Female): ");
                     int gender = Int32.Parse(Console.ReadLine());
-                    Person.CheсkGender(gender);
+                    CheсkGender(gender);
                     newPerson.Gender = (Gender) Enum.Parse(
                         typeof(Gender), Convert.ToString(gender));
                 }),
@@ -52,7 +52,24 @@ namespace View
             actions.ForEach(SetValue);
             return newPerson;
         }
-        
+
+        /// <summary>
+        /// Проверка ввода пола
+        /// </summary>
+        /// <param name="number">Цифра пола</param>
+        /// <returns></returns>
+        public static int CheсkGender(int number)
+        {
+            if (number < 0 || number > 1)
+            {
+                throw new ArgumentException("Enter 0 or 1. 0 - Male, 1 - Female");
+            }
+            else
+            {
+                return number;
+            }
+        }
+
         /// <summary>
         /// Задание параметров
         /// </summary>
