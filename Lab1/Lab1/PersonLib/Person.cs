@@ -85,16 +85,16 @@ namespace Model
         /// <returns>Локаль имени и фамилии</returns>
         public Localization CheckLanguage(string value)
         {
-            var laguageDictionary = new Dictionary<Localization, string>()
+            var languageDictionary = new Dictionary<Localization, string>()
             {
                 {Localization.Russian, @"(^[а-я]+[-]?[а-я]+$)|(^[а-я]$)"},
                 {Localization.English, @"(^[a-z]+[-]?[a-z]+$)|(^[a-z]$)"}
             };
 
-            foreach (var item in laguageDictionary)
+            foreach (var item in languageDictionary)
             {
                 var language = Regex.IsMatch(value.ToLower(),
-                    laguageDictionary[item.Key]);
+                    languageDictionary[item.Key]);
                 if (language)
                 {
                     return item.Key;
