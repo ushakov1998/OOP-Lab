@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Localization.cs" />
     <Compile Include="RandomPerson.cs" />
     <Compile Include="PersonList.cs" />
     <Compile Include="Gender.cs" />

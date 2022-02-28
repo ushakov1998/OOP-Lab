@@ -10,6 +10,9 @@ namespace View
         /// </summary>
         public static void Main(string[] args)
         {
+            System.Console.OutputEncoding = System.Text.Encoding.Unicode;
+            System.Console.InputEncoding = System.Text.Encoding.Unicode;
+
             Console.WriteLine("1. Two list of person. Each contains three persons.");
             Console.WriteLine();
             Console.ReadKey();
@@ -73,7 +76,7 @@ namespace View
             Console.WriteLine();
 
             Console.WriteLine("8. Add random person " + 
-                              "to the second list");
+                              "to the first list");
             Person randPerson = RandomPerson.GetRandomPerson();
             firstListOfPerson.AddPerson(randPerson);
             ShowLists(firstListOfPerson, secondListOfPerson);

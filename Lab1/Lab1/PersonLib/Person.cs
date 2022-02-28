@@ -1,4 +1,7 @@
 ﻿using System;
+using System.CodeDom.Compiler;
+using System.Collections.Generic;
+using System.Text;
 using System.Text.RegularExpressions;
 
 namespace Model
@@ -33,7 +36,7 @@ namespace Model
             set
             {
                 CheckNameAndSurname(value);
-                _name = ConvertToCorrectRegister(value);
+                _name = ConvertToRightForm(value);
             }
         }
 
@@ -46,7 +49,11 @@ namespace Model
             set
             {
                 CheckNameAndSurname(value);
-                _surname = ConvertToCorrectRegister(value);
+                if (LocalizationCheck(value))
+                {
+                    _surname = ConvertToRightForm(value);
+                }
+                
             }
         }
 
@@ -63,13 +70,38 @@ namespace Model
             }
             else if (!IsNameAndSurnameCorrect(value))
             {
-                throw new Exception("Name or surname have to contain " + 
+                throw new Exception("Name or surname have to contain" + 
                                     " only Cyrillic or Latin symbols!");
             }
             else
             {
                 return value;
             }
+        }
+        /// <summary>
+        /// Проверка локали имени и фамилии
+        /// </summary>
+        /// <param name="value">Имя,Фамилия</param>
+        /// <returns>Локаль имени и фамилии</returns>
+        public Localization CheckLanguage(string value)
+        {
+            var laguageDictionary = new Dictionary<Localization, string>()
+            {
+                {Localization.Russian, @"(^[а-я]+[-]?[а-я]+$)|(^[а-я]$)"},
+                {Localization.English, @"(^[a-z]+[-]?[a-z]+$)|(^[a-z]$)"}
+            };
+
+            foreach (var item in laguageDictionary)
+            {
+                var language = Regex.IsMatch(value.ToLower(),
+                    laguageDictionary[item.Key]);
+                if (language)
+                {
+                    return item.Key;
+                }
+            }
+            throw new ArgumentException
+                ("Other language.");
         }
 
         /// <summary>
@@ -83,15 +115,16 @@ namespace Model
             var regex = new Regex("^([A-Za-z]|[А-Яа-я])+(((-| )?([A-Za-z]|" +
                                   "[А-Яа-я])+))?$");
 
+
             return regex.IsMatch(value);
         }
         
         /// <summary>
-        /// Проверка регистра и двойных имен
+        /// Проверка регистра
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
-        private string ConvertToCorrectRegister(string value)
+        private string ConvertToRightForm(string value)
         {
             string FirstLetterToUpper(string name)
             {
@@ -114,6 +147,24 @@ namespace Model
 
             }
             return FirstLetterToUpper(value);
+        }
+
+        /// <summary>
+        /// Проверка локали имени и фамилии
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        private bool LocalizationCheck(string value)
+        {
+            if (((CheckLanguage(value) != CheckLanguage(_name))))
+            {
+                throw new ArgumentException
+                    ("Please enter Surname and Name in same language");
+            }
+            else
+            {
+                return true;
+            }
         }
         /// <summary>
         /// Максимальный возраст человека
