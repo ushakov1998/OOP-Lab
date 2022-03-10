@@ -10,7 +10,7 @@ namespace Model
     /// Класс: Человек 
     /// Включает в себя поля,свойства и методы класса
     /// </summary>
-    public class Person
+    public abstract class PersonBase
     {
         /// <summary>
         /// Имя 
@@ -25,7 +25,7 @@ namespace Model
         /// <summary>
         /// Возраст 
         /// </summary>
-        private int _age;
+        protected int _age;
 
         /// <summary>
         /// Имя 
@@ -166,41 +166,13 @@ namespace Model
                 return true;
             }
         }
-        /// <summary>
-        /// Максимальный возраст человека
-        /// </summary>
-        public const int MaxAge = 125;
 
         /// <summary>
         /// Возраст 
         /// </summary>
-        public int Age
-        {
-            get => _age;
-            set
-            {
-                CheckingAge(value);
-                _age = value;
-            }
-        }
+        public abstract int Age { get; set; }
         
-        /// <summary>
-        /// Проверка для ввода возраста
-        /// </summary>
-        /// <param name="number">Возраст для проверки</param>
-        /// <returns>Корректный возраст</returns>
-        public static int CheckingAge(int number)
-        {
-            if (number < 0 || number > MaxAge)
-            {
-                throw new ArgumentException(
-                    $"The age must between 0 and {MaxAge} years!");
-            }
-            else
-            {
-                return number;
-            }
-        }
+        
 
         /// <summary>
         /// Пол 
@@ -214,14 +186,19 @@ namespace Model
         /// <param name="surname">Фамилия</param>
         /// <param name="age">Возраст</param>
         /// <param name="gender">Пол</param>
-        public Person(string name, string surname, int age, Gender gender)
+        public PersonBase(string name, string surname, int age, Gender gender)
         {
             Name = name;
             Surname = surname;
             Age = age;
             Gender = gender;
         }
-        
+
+        /// <summary>
+        /// Конструктор класса по умолчанию
+        /// </summary>
+        public PersonBase() : this("Alex","Kent",101,Gender.Female) {}
+
         /// <summary>
         /// Информация о человеке
         /// </summary>

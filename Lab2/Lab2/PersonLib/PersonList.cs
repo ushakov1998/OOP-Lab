@@ -10,7 +10,7 @@ namespace Model
         /// <summary>
         /// Список людей
         /// </summary>
-        private Person[] _personArray = new Person[0];
+        private PersonBase[] _personArray = new PersonBase[0];
 
         /// <summary>
         /// Количество всех персон
@@ -21,10 +21,10 @@ namespace Model
         /// Добавление человека в список
         /// </summary>
         /// <param name="person">Экземпляр класса персона</param>
-        public void AddPerson(Person person)
+        public void AddPerson(PersonBase person)
         {
             var tempArray = _personArray;
-            _personArray = new Person[tempArray.Length + 1];
+            _personArray = new PersonBase[tempArray.Length + 1];
             
             for (int i = 0; i < tempArray.Length; i++)
             {
@@ -53,7 +53,7 @@ namespace Model
             {
                 var tempArray = _personArray;
                 var tempIndex = 0;
-                _personArray = new Person[tempArray.Length - 1];
+                _personArray = new PersonBase[tempArray.Length - 1];
 
                 for (int i = 0; i < tempArray.Length; i++)
                 {
@@ -86,7 +86,7 @@ namespace Model
         /// </summary>
         /// <param name="index"></param>
         /// <returns>Значение по указанному индексу</returns>
-        public Person FindByIndex(int index)
+        public PersonBase FindByIndex(int index)
         {
             CheckRangeOfIndex(index);
             
@@ -97,9 +97,9 @@ namespace Model
         /// Добавление нескольких персон
         /// </summary>
         /// <param name="persons">Массив людей</param>
-        public void AddArrayOfPeople(Person[] persons)
+        public void AddArrayOfPeople(PersonBase[] persons)
         {
-            foreach (Person person in persons)
+            foreach (PersonBase person in persons)
             {
                 AddPerson(person);
             }
