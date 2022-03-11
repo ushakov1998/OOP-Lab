@@ -49,6 +49,7 @@ namespace Model
             var _passport = _random.Next(100000000, 999999999).ToString();
             adult.Passport = _passport;
         }
+        
         /// <summary>
         /// Рандомный ребенок
         /// </summary>

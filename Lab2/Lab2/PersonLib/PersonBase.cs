@@ -78,6 +78,7 @@ namespace Model
                 return value;
             }
         }
+        //TODO:private
         /// <summary>
         /// Проверка локали имени и фамилии
         /// </summary>
@@ -186,7 +187,7 @@ namespace Model
         /// <param name="surname">Фамилия</param>
         /// <param name="age">Возраст</param>
         /// <param name="gender">Пол</param>
-        public PersonBase(string name, string surname, int age, Gender gender)
+        protected PersonBase(string name, string surname, int age, Gender gender)
         {
             Name = name;
             Surname = surname;
@@ -197,7 +198,7 @@ namespace Model
         /// <summary>
         /// Конструктор класса по умолчанию
         /// </summary>
-        public PersonBase() : this("Alex","Kent",101,Gender.Female) {}
+        protected PersonBase() : this("Alex","Kent",101,Gender.Female) {}
 
         /// <summary>
         /// Информация о человеке
