@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Model
 {
+    /// <summary>
+    /// Перечисление семейного статуса
+    /// </summary>
     public enum MaritalStatus
     {
         Married,
