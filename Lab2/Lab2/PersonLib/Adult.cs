@@ -60,7 +60,7 @@ namespace Model
                 if (value > AdultMaxAge && value <= AdultMinAge)
                 {
                     throw new ArgumentOutOfRangeException(
-                        "Упс...,кажется возраст не в диапозоне (18;125]");
+                        $"Упс...,кажется возраст не в диапозоне ({AdultMinAge};{AdultMaxAge}]");
                 }
                 _age = value;
             }
