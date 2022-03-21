@@ -78,7 +78,7 @@ namespace Model
                 return value;
             }
         }
-        //TODO:private +
+
         /// <summary>
         /// Проверка локали имени и фамилии
         /// </summary>
@@ -172,8 +172,6 @@ namespace Model
         /// Возраст 
         /// </summary>
         public abstract int Age { get; set; }
-        
-        
 
         /// <summary>
         /// Пол 

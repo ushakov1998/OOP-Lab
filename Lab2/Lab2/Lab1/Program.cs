@@ -10,6 +10,7 @@ namespace View
         /// </summary>
         public static void Main(string[] args)
         {
+            //BUG: system. encoding
             Console.WriteLine("Попробуй нажать любую кнопку...");
             Console.WriteLine();
             Console.ReadKey();

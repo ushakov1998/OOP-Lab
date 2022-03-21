@@ -21,8 +21,10 @@ namespace Model
         /// </summary>
         public Adult AncestorTwo { get; set; }
 
+        //TODO: XML
         public string School { get; set; }
 
+        //BUG:
         /// <summary>
         /// Макс.возраст ребенка
         /// </summary>
