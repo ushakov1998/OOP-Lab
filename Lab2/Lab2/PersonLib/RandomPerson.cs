@@ -46,9 +46,9 @@ namespace Model
         /// <param name="adult">Взрослый чел</param>
         private static void PassportNumber(Adult adult)
         {
-            //TODO: RSDN
-            var _passport = _random.Next(100000000, 999999999).ToString();
-            adult.Passport = _passport;
+            //TODO: RSDN+
+            var passport = _random.Next(100000000, 999999999).ToString();
+            adult.Passport = passport;
         }
 
         /// <summary>
@@ -57,7 +57,7 @@ namespace Model
         /// <returns></returns>
         public static PersonBase CreateRandomPerson()
         {
-            if (_random.Next(0, 5) != 0)
+            if (_random.Next(0, 2) != 0)
             {
                 return CreateAdult();
             }

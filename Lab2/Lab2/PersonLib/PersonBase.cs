@@ -202,5 +202,17 @@ namespace Model
         /// Информация о человеке
         /// </summary>
         public virtual string Info => $"{Name} {Surname}, Age: {Age}, Gender: {Gender}";
+        
+        /// <summary>
+        /// Имя и фамилия
+        /// </summary>
+        /// <returns>Строка с информацией</returns>
+        public string ShortInfo
+        {
+            get
+            {
+                return $"{Name} {Surname}";
+            }
+        }
     }
 }

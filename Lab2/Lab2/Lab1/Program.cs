@@ -10,7 +10,10 @@ namespace View
         /// </summary>
         public static void Main(string[] args)
         {
-            //BUG: system. encoding
+            System.Console.OutputEncoding = System.Text.Encoding.Unicode;
+            System.Console.InputEncoding = System.Text.Encoding.Unicode;
+
+            //BUG: system. encoding+
             Console.WriteLine("Попробуй нажать любую кнопку...");
             Console.WriteLine();
             Console.ReadKey();
@@ -39,6 +42,26 @@ namespace View
                 Console.WriteLine();
             }
 
+            Console.ReadKey();
+            Console.WriteLine("Четвертая персона это....?");
+
+            switch (listOfPersons.FindByIndex(3))
+            {
+                case Adult adult:
+                {
+                    Console.WriteLine(adult.LowBackPain());
+                    break;
+                }
+
+                case Child child:
+                {
+                    Console.WriteLine(child.LoveGachi());
+                    break;
+                }
+            }
+
+            Console.ReadKey();
+            Console.WriteLine();
         }
 
     }

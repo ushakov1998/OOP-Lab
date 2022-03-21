@@ -134,6 +134,16 @@ namespace Model
                 return personInfo;
             }
         }
+        
+        /// <summary>
+        /// Боль в пояснице
+        /// </summary>
+        /// <returns>Усугубление ситуации</returns>
+        public string LowBackPain()
+        {
+            return $"\n{ShortInfo} (с больной поясницей) " +
+                   "любит сидеть на стуле весь день :)";
+        }
 
     }
 }

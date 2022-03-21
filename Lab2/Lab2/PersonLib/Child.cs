@@ -21,19 +21,22 @@ namespace Model
         /// </summary>
         public Adult AncestorTwo { get; set; }
 
-        //TODO: XML
+        //TODO: XML+
+        /// <summary>
+        /// Школа ребенка
+        /// </summary>
         public string School { get; set; }
 
         //BUG:
         /// <summary>
         /// Макс.возраст ребенка
         /// </summary>
-        public const int ChildMaxAge = 125;
+        public const int ChildMaxAge = 18;
 
         /// <summary>
         /// Мин.возраст ребенка
         /// </summary>
-        public const int ChildMinAge = 18;
+        public const int ChildMinAge = 0;
 
         /// <summary>
         /// Возраст
@@ -68,7 +71,7 @@ namespace Model
                     personInfo += $"\nПервый родитель:" +
                                   $" {AncestorOne.Name} {AncestorOne.Surname} ";
                 }
-                if (AncestorOne != null)
+                if (AncestorTwo != null)
                 {
                     personInfo += $"\nВторой родитель:" +
                                   $" {AncestorTwo.Name} {AncestorTwo.Surname} ";
@@ -84,6 +87,15 @@ namespace Model
                 }
                 return personInfo;
             }
+        }
+        /// <summary>
+        /// Ребенок - гачист
+        /// </summary>
+        /// <returns>Счастливый ребенок</returns>
+        public string LoveGachi()
+        {
+            return $"{ShortInfo},который слушает Gachimuchi " +
+                   "и пытается понять смысл жизни...";
         }
     }
 }

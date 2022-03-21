@@ -89,7 +89,6 @@ namespace Model
         public PersonBase FindByIndex(int index)
         {
             CheckRangeOfIndex(index);
-            
             return _personArray[index];
         }
         
