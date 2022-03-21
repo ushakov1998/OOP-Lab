@@ -78,13 +78,13 @@ namespace Model
                 return value;
             }
         }
-        //TODO:private
+        //TODO:private +
         /// <summary>
         /// Проверка локали имени и фамилии
         /// </summary>
         /// <param name="value">Имя,Фамилия</param>
         /// <returns>Локаль имени и фамилии</returns>
-        public Localization CheckLanguage(string value)
+        private Localization CheckLanguage(string value)
         {
             var languageDictionary = new Dictionary<Localization, string>()
             {
@@ -203,6 +203,6 @@ namespace Model
         /// <summary>
         /// Информация о человеке
         /// </summary>
-        public string Info => $"{Name} {Surname}, Age: {Age}, Gender: {Gender}";
+        public virtual string Info => $"{Name} {Surname}, Age: {Age}, Gender: {Gender}";
     }
 }

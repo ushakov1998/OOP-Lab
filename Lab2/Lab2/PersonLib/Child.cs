@@ -52,5 +52,36 @@ namespace Model
                 _age = value;
             }
         }
+        /// <summary>
+        /// Информация о ребенке
+        /// </summary>
+        ///<returns>Информация о ребенке</returns>
+        public override string Info
+        {
+            get
+            {
+                var personInfo = base.Info;
+                if (AncestorOne != null)
+                {
+                    personInfo += $"\nПервый родитель:" +
+                                  $" {AncestorOne.Name} {AncestorOne.Surname} ";
+                }
+                if (AncestorOne != null)
+                {
+                    personInfo += $"\nВторой родитель:" +
+                                  $" {AncestorTwo.Name} {AncestorTwo.Surname} ";
+                }
+                if (AncestorOne == null && AncestorTwo == null)
+                {
+                    personInfo += "\nСирота";
+                }
+
+                if (School != null)
+                {
+                    personInfo += $"\nШкола: {School}";
+                }
+                return personInfo;
+            }
+        }
     }
 }

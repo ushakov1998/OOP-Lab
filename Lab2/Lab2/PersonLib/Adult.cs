@@ -66,6 +66,74 @@ namespace Model
             }
         }
 
+        /// <summary>
+        /// Супруг(а)
+        /// </summary>
+        private Adult _partner;
+
+        /// <summary>
+        /// Супруг(а)
+        /// </summary>
+        public Adult Partner
+        {
+            get
+            {
+                return _partner;
+            }
+            set
+            {
+                if (value == null)
+                {
+                    throw new ArgumentNullException(
+                        $"{nameof(Partner)}", $"{nameof(Partner)} значение пусто");
+                }
+                if (MaritalStatus == MaritalStatus.Married &&
+                    value.MaritalStatus == MaritalStatus.Married)
+                {
+                    _partner = value;
+                }
+                else
+                {
+                    throw new ArgumentException(
+                        "Что то пошло не так!" +
+                        "Проверьте семейное полжение обоих партнеров!");
+                }
+            }
+        }
+        /// <summary>
+        /// Информация о работе
+        /// </summary>
+        public string Job { get; set; }
+
+        /// <summary>
+        /// Получение инфы о взрослом человеке
+        /// </summary>
+        public override string Info
+        {
+            get
+            {
+                var personInfo = base.Info + 
+                                 $"\nПаспортные данные: {Passport}" +
+                                 $"\nСемейное положение: {MaritalStatus}";
+                if (MaritalStatus == MaritalStatus.Married)
+                {
+                    personInfo += $"\nСупруг(а): {Partner.Name} " +
+                                  $"{Partner.Surname}";
+                }
+
+                personInfo += "\nМесто работы: ";
+                if (string.IsNullOrEmpty(Job))
+                {
+                    personInfo += "Отдыхает";
+                }
+                else
+                {
+                    personInfo += Job;
+                }
+
+                return personInfo;
+            }
+        }
 
     }
 }
