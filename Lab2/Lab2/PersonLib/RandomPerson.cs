@@ -84,7 +84,7 @@ namespace Model
                 case 1:
                 {
                     person.Gender = Gender.Female;
-                    person.Name = _maleName[_random.Next(_femaleName.Length)];
+                    person.Name = _femaleName[_random.Next(_femaleName.Length)];
                     break;
                 }
             }

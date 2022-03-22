@@ -3,7 +3,7 @@ using BusinessLogic;
 
 namespace View
 {
-    class Program
+    internal class Program
     {
         static void Main(string[] args)
         {
