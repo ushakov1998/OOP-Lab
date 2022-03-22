@@ -12,8 +12,7 @@ namespace View
         {
             System.Console.OutputEncoding = System.Text.Encoding.Unicode;
             System.Console.InputEncoding = System.Text.Encoding.Unicode;
-
-            //BUG: system. encoding+
+            
             Console.WriteLine("Попробуй нажать любую кнопку...");
             Console.WriteLine();
             Console.ReadKey();

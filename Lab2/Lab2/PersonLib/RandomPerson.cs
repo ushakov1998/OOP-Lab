@@ -46,7 +46,6 @@ namespace Model
         /// <param name="adult">Взрослый чел</param>
         private static void PassportNumber(Adult adult)
         {
-            //TODO: RSDN+
             var passport = _random.Next(100000000, 999999999).ToString();
             adult.Passport = passport;
         }

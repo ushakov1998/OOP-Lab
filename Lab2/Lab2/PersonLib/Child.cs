@@ -20,14 +20,12 @@ namespace Model
         /// Родитель ребенка №2
         /// </summary>
         public Adult AncestorTwo { get; set; }
-
-        //TODO: XML+
+        
         /// <summary>
         /// Школа ребенка
         /// </summary>
         public string School { get; set; }
-
-        //BUG:
+        
         /// <summary>
         /// Макс.возраст ребенка
         /// </summary>
@@ -43,10 +41,7 @@ namespace Model
         /// </summary>
         public override int Age
         {
-            get
-            {
-                return _age;
-            }
+            get => _age;
             set
             {
                 if (value > ChildMaxAge && value <= ChildMinAge)
