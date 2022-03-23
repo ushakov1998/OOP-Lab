@@ -9,9 +9,11 @@ namespace BusinessLogic
     /// <summary>
     /// Класс: Оплата по ставке
     /// </summary>
-    public class RatePayment : IPayable
+    public class RatePayment : WorkerBase, IPayable
     {
-
+        /// <summary>
+        /// Отработано дней
+        /// </summary>
         private int _daysWorked;
 
         /// <summary>
@@ -20,26 +22,18 @@ namespace BusinessLogic
         public int DaysWorked
         {
             get => _daysWorked;
-            set
-            {
-                Validation.ValidIntNumber(value);
-                _daysWorked = value;
-            }
+            set => _daysWorked = value;
         }
 
-        private decimal _costPerDay;
+        private double _costPerDay;
 
         /// <summary>
         /// Стоимость дня работы
         /// </summary>
-        public decimal CostPerDay
+        public double CostPerDay
         {
             get => _costPerDay;
-            set
-            {
-                Validation.ValidDecimalNumber(value);
-                _costPerDay = value;
-            }
+            set => _costPerDay = value;
         }
 
         /// <summary>
@@ -47,7 +41,7 @@ namespace BusinessLogic
         /// </summary>
         /// <param name="daysWorked">Кол-во отработанных дней</param>
         /// <param name="costPerDay">Стоимость дня</param>
-        public RatePayment(int daysWorked, decimal costPerDay)
+        public RatePayment(int daysWorked, double costPerDay)
         {
             DaysWorked = daysWorked;
             CostPerDay = costPerDay;
@@ -61,6 +55,7 @@ namespace BusinessLogic
         /// <summary>
         /// Зарплата
         /// </summary>
-        public decimal Salary => DaysWorked * CostPerDay * 0.87m;
+        public override double Salary() => SalaryAccount += DaysWorked * CostPerDay * 0.87;
+
     }
 }

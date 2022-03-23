@@ -9,7 +9,7 @@ namespace BusinessLogic
     /// <summary>
     /// Оплата по окладу
     /// </summary>
-    public class TariffPayment : IPayable
+    public class TariffPayment : WorkerBase, IPayable
     {
         private int _daysWorked;
         private int _workingDaysInMonth;
@@ -32,26 +32,18 @@ namespace BusinessLogic
         public int WorkingDaysInMonth
         {
             get => _workingDaysInMonth;
-            set
-            {
-                Validation.ValidIntNumber(value);
-                _workingDaysInMonth = value;
-            }
+            set => _workingDaysInMonth = value;
         }
 
-        private decimal _tariff;
+        private double _tariff;
 
         /// <summary>
         /// Оклад
         /// </summary>
-        public decimal Tariff
+        public double Tariff
         {
             get => _tariff;
-            set
-            {
-                Validation.ValidDecimalNumber(value);
-                _tariff = value;
-            }
+            set => _tariff = value;
         }
 
         /// <summary>
@@ -60,7 +52,7 @@ namespace BusinessLogic
         /// <param name="tariff">Тарифная ставка</param>
         /// <param name="workingDaysInMonth">Кол-во рабочих дней в месяце</param>
         /// <param name="daysWorked">Дней отработано</param>
-        public TariffPayment(decimal tariff, int workingDaysInMonth, int daysWorked)
+        public TariffPayment(double tariff, int workingDaysInMonth, int daysWorked)
         {
             Tariff = tariff;
             WorkingDaysInMonth = workingDaysInMonth;
@@ -75,8 +67,7 @@ namespace BusinessLogic
         /// <summary>
         /// Расчет тарифной зарплаты
         /// </summary>
-        public decimal Salary => DaysWorked * Tariff / WorkingDaysInMonth * 0.87m;
-
+        public override double Salary() => SalaryAccount += DaysWorked * Tariff / WorkingDaysInMonth * 0.87;
 
         /// <summary>
         /// Проверка количества отработанных дней
@@ -85,7 +76,6 @@ namespace BusinessLogic
         /// <param name="workingDaysInMonth">Всего рабочих дней в месяце</param>
         private static void ValidDaysWorked(int daysWorked, int workingDaysInMonth)
         {
-            Validation.ValidIntNumber(daysWorked);
             if (daysWorked > workingDaysInMonth)
             {
                 throw new ArgumentException("Рабочих дней больше, " +

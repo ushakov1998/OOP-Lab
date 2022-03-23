@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BusinessLogic;
 
 namespace View
@@ -7,8 +8,9 @@ namespace View
     {
         static void Main(string[] args)
         {
-            Console.WriteLine();
+            var listOfWorkers = new WorkerList();
 
+            
         }
     }
 }

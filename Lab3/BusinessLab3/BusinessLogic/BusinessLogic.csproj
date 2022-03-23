@@ -41,11 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="WorkerList.cs" />
     <Compile Include="IPayable.cs" />
     <Compile Include="Localization.cs" />
     <Compile Include="TypeOfSalary.cs" />
-    <Compile Include="Worker.cs" />
-    <Compile Include="Validation.cs" />
+    <Compile Include="WorkerBase.cs" />
     <Compile Include="HourPayment.cs" />
     <Compile Include="RatePayment.cs" />
     <Compile Include="TariffPayment.cs" />

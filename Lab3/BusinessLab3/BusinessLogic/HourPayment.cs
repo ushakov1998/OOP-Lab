@@ -9,8 +9,11 @@ namespace BusinessLogic
     /// <summary>
     /// Класс: Почасовая оплата
     /// </summary>
-    public class HourPayment : IPayable
+    public class HourPayment : WorkerBase, IPayable
     {
+        /// <summary>
+        /// Отработанные часы
+        /// </summary>
         private int _hoursWorked;
 
         /// <summary>
@@ -21,37 +24,35 @@ namespace BusinessLogic
             get => _hoursWorked;
             set
             {
-                Validation.ValidIntNumber(value);
                 _hoursWorked = value;
             }
         }
 
-        private decimal _costPerHour;
+        /// <summary>
+        /// Стоимость часа
+        /// </summary>
+        private double _costPerHour;
 
         /// <summary>
         /// Стоимость работы за час
         /// </summary>
-        public decimal CostPerHour
+        public double CostPerHour
         {
             get => _costPerHour;
-            set
-            {
-                Validation.ValidDecimalNumber(value);
-                _costPerHour = value;
-            }
+            set => _costPerHour = value;
         }
 
         /// <summary>
         /// Зарплата
         /// </summary>
-        public decimal Salary => HoursWorked * CostPerHour * 0.87m;
+        public override double Salary() => SalaryAccount += HoursWorked * CostPerHour * 0.87;
 
         /// <summary>
         /// Конструктор класса
         /// </summary>
         /// <param name="hoursWorked"></param>
         /// <param name="costPerHour"></param>
-        public HourPayment(int hoursWorked, decimal costPerHour)
+        public HourPayment(int hoursWorked, double costPerHour)
         {
             HoursWorked = hoursWorked;
             CostPerHour = costPerHour;

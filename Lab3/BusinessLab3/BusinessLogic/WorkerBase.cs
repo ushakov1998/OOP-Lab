@@ -7,8 +7,13 @@ using System.Threading.Tasks;
 
 namespace BusinessLogic
 {
-    public class Worker
+    public abstract class WorkerBase : IPayable
     {
+        /// <summary>
+        /// Метод начисления ЗП
+        /// </summary>
+        /// <returns></returns>
+        public virtual double Salary() => SalaryAccount;
         /// <summary>
         /// Имя 
         /// </summary>
@@ -49,30 +54,21 @@ namespace BusinessLogic
             }
         }
 
-        private decimal _salary;
+        /// <summary>
+        /// Зарплатный счет
+        /// </summary>
+        private double _salaryAccount;
 
         /// <summary>
-        /// Зарплата
+        /// Зарплатный счет
         /// </summary>
-        public decimal Salary
+        public double SalaryAccount
         {
-            get => _salary;
-            set
-            {
-                _salary = value;
-            }
+            get => _salaryAccount;
+            set => _salaryAccount = value;
         }
 
-        private TypeOfSalary _typeOfSalary;
-
-        public TypeOfSalary TypeOfSalary
-        {
-            get => _typeOfSalary;
-            set
-            {
-                _typeOfSalary = value;
-            }
-        }
+        
 
         /// <summary>
         /// Проверка имени и фамилии
@@ -190,37 +186,26 @@ namespace BusinessLogic
         /// </summary>
         /// <param name="name">Имя</param>
         /// <param name="surname">Фамилия</param>
-        /// <param name="salary">Зарплата</param>
-        /// <param name="typeOfSalary">Тип зарплаты</param>
-        protected Worker(string name, string surname, int salary, TypeOfSalary typeOfSalary)
+        /// <param name="salaryAccount">Зарплатный счет</param>
+        protected WorkerBase(string name, string surname, double salaryAccount)
         {
             Name = name;
             Surname = surname;
-            Salary = salary;
-            TypeOfSalary = typeOfSalary;
+            SalaryAccount = salaryAccount;
         }
 
         /// <summary>
         /// Конструктор класса по умолчанию
         /// </summary>
-        protected Worker() : this("Alex", "Kent", 0, TypeOfSalary.HourPayment) { }
+        protected WorkerBase() : this("Alex", "Kent",  0) { }
 
-        /// <summary>
-        /// Информация о работяге
-        /// </summary>
-        public virtual string Info => $"{Name} {Surname}, Salary: {Salary}, Type of Salary: {TypeOfSalary}";
 
         /// <summary>
         /// Имя и фамилия
         /// </summary>
         /// <returns>Строка с информацией</returns>
-        public string ShortInfo
-        {
-            get
-            {
-                return $"{Name} {Surname} {TypeOfSalary} {Salary}";
-            }
-        }
+        public string ShortInfo => $"{Name} {Surname} {SalaryAccount}";
+        
     }
 }
 

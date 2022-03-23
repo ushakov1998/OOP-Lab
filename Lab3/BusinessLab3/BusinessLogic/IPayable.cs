@@ -6,8 +6,8 @@
     public interface IPayable
     {
         /// <summary>
-        /// Зарплата
+        /// Метод начисления зарплаты
         /// </summary>
-        decimal Salary { get; }
+        double Salary();
     }
 }
