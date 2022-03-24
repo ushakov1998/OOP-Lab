@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLogic
 {
-    public abstract class WorkerBase : IPayable
+    public abstract class WorkerBase : ISalaryble
     {
         /// <summary>
         /// Метод начисления ЗП
@@ -65,7 +65,7 @@ namespace BusinessLogic
         public double SalaryAccount
         {
             get => _salaryAccount;
-            set => _salaryAccount = value;
+            set => _salaryAccount = System.Math.Round(value,1);
         }
 
         
@@ -199,13 +199,21 @@ namespace BusinessLogic
         /// </summary>
         protected WorkerBase() : this("Alex", "Kent",  0) { }
 
+        /// <summary>
+        /// Информация о работяге
+        /// </summary>
+        /// <returns></returns>
+        public abstract string Info();
 
         /// <summary>
-        /// Имя и фамилия
+        /// Информация о работяге
         /// </summary>
-        /// <returns>Строка с информацией</returns>
-        public string ShortInfo => $"{Name} {Surname} {SalaryAccount}";
-        
+        /// <returns></returns>
+        protected string InfoBase()
+        {
+            return $"{Name} {Surname}, Account: {SalaryAccount} $";
+        }
+
     }
 }
 

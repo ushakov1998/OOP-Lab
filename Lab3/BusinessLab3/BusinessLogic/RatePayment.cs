@@ -9,7 +9,7 @@ namespace BusinessLogic
     /// <summary>
     /// Класс: Оплата по ставке
     /// </summary>
-    public class RatePayment : WorkerBase, IPayable
+    public class RatePayment : WorkerBase, ISalaryble
     {
         /// <summary>
         /// Отработано дней
@@ -25,37 +25,35 @@ namespace BusinessLogic
             set => _daysWorked = value;
         }
 
-        private double _costPerDay;
-
         /// <summary>
         /// Стоимость дня работы
         /// </summary>
-        public double CostPerDay
-        {
-            get => _costPerDay;
-            set => _costPerDay = value;
-        }
+        public double CostPerDay { get; set; }
 
         /// <summary>
-        /// Конструктор класса 
+        /// Конструктор класа
         /// </summary>
-        /// <param name="daysWorked">Кол-во отработанных дней</param>
+        /// <param name="name">Имя</param>
+        /// <param name="surname">Фамилия</param>
+        /// <param name="salaryAccount">Зарплатный счет</param>
+        /// <param name="daysWorked">Отработанные дни</param>
         /// <param name="costPerDay">Стоимость дня</param>
-        public RatePayment(int daysWorked, double costPerDay)
+        public RatePayment(string name, string surname, double salaryAccount,
+            int daysWorked, double costPerDay) : base(name, surname, salaryAccount)
         {
             DaysWorked = daysWorked;
             CostPerDay = costPerDay;
         }
 
         /// <summary>
-        /// Конструктор по умолчанию
-        /// </summary>
-        public RatePayment(): this(1,1) {}
-
-        /// <summary>
         /// Зарплата
         /// </summary>
         public override double Salary() => SalaryAccount += DaysWorked * CostPerDay * 0.87;
 
+        
+        public override string Info()
+        {
+            return $"{InfoBase()},  CostPerDay: {CostPerDay}, DaysWorked: {DaysWorked}";
+        }
     }
 }

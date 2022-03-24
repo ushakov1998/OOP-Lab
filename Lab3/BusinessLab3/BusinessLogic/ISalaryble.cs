@@ -3,7 +3,7 @@
     /// <summary>
     /// Интерфейс начисления копеек
     /// </summary>
-    public interface IPayable
+    public interface ISalaryble
     {
         /// <summary>
         /// Метод начисления зарплаты

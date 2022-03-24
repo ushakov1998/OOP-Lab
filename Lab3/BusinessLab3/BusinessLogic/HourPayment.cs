@@ -9,7 +9,7 @@ namespace BusinessLogic
     /// <summary>
     /// Класс: Почасовая оплата
     /// </summary>
-    public class HourPayment : WorkerBase, IPayable
+    public class HourPayment : WorkerBase, ISalaryble
     {
         /// <summary>
         /// Отработанные часы
@@ -22,10 +22,7 @@ namespace BusinessLogic
         public int HoursWorked
         {
             get => _hoursWorked;
-            set
-            {
-                _hoursWorked = value;
-            }
+            set => _hoursWorked = value;
         }
 
         /// <summary>
@@ -47,20 +44,25 @@ namespace BusinessLogic
         /// </summary>
         public override double Salary() => SalaryAccount += HoursWorked * CostPerHour * 0.87;
 
+        public override string Info()
+        {
+            return $"{InfoBase()},  CostPerHour: {CostPerHour}, Worked: {HoursWorked}";
+        }
+
         /// <summary>
         /// Конструктор класса
         /// </summary>
-        /// <param name="hoursWorked"></param>
-        /// <param name="costPerHour"></param>
-        public HourPayment(int hoursWorked, double costPerHour)
+        /// <param name="name">Имя</param>
+        /// <param name="surname">Фамилия</param>
+        /// <param name="salaryAccount">Зарплатный счет</param>
+        /// <param name="hoursWorked">Отработанные часы</param>
+        /// <param name="costPerHour">Стоимость часа</param>
+        public HourPayment(string name, string surname, double salaryAccount, 
+            int hoursWorked , double costPerHour) : base(name, surname, salaryAccount)
         {
             HoursWorked = hoursWorked;
             CostPerHour = costPerHour;
         }
 
-        /// <summary>
-        /// Конструктор по умолчанию
-        /// </summary>
-        public HourPayment() : this(1, 1) {}
     }
 }

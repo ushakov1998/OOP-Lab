@@ -9,11 +9,10 @@ namespace BusinessLogic
     /// <summary>
     /// Оплата по окладу
     /// </summary>
-    public class TariffPayment : WorkerBase, IPayable
+    public class TariffPayment : WorkerBase, ISalaryble
     {
         private int _daysWorked;
-        private int _workingDaysInMonth;
-        
+
         /// <summary>
         /// Количество отработанных дней
         /// </summary>
@@ -29,30 +28,24 @@ namespace BusinessLogic
         /// <summary>
         /// Количество рабочих дней в месяце
         /// </summary>
-        public int WorkingDaysInMonth
-        {
-            get => _workingDaysInMonth;
-            set => _workingDaysInMonth = value;
-        }
-
-        private double _tariff;
+        public int WorkingDaysInMonth { get; set; }
 
         /// <summary>
         /// Оклад
         /// </summary>
-        public double Tariff
-        {
-            get => _tariff;
-            set => _tariff = value;
-        }
-
+        public double Tariff { get; set; } 
+        
         /// <summary>
-        /// Конструтор класса
+        /// Конструктор класс
         /// </summary>
-        /// <param name="tariff">Тарифная ставка</param>
-        /// <param name="workingDaysInMonth">Кол-во рабочих дней в месяце</param>
-        /// <param name="daysWorked">Дней отработано</param>
-        public TariffPayment(double tariff, int workingDaysInMonth, int daysWorked)
+        /// <param name="name">Имя</param>
+        /// <param name="surname">Фамилия</param>
+        /// <param name="salaryAccount">Зарплатный счет</param>
+        /// <param name="tariff">Оклад</param>
+        /// <param name="workingDaysInMonth">Рабочих дней в месяце</param>
+        /// <param name="daysWorked">Отработано дней</param>
+        public TariffPayment(string name, string surname, double salaryAccount, 
+            double tariff, int workingDaysInMonth, int daysWorked) : base(name, surname, salaryAccount)
         {
             Tariff = tariff;
             WorkingDaysInMonth = workingDaysInMonth;
@@ -60,14 +53,14 @@ namespace BusinessLogic
         }
 
         /// <summary>
-        /// Конструктор по умолчанию
-        /// </summary>
-        public TariffPayment() : this(1, 1, 1) {}
-
-        /// <summary>
         /// Расчет тарифной зарплаты
         /// </summary>
         public override double Salary() => SalaryAccount += DaysWorked * Tariff / WorkingDaysInMonth * 0.87;
+
+        public override string Info()
+        {
+            return $"{InfoBase()}, Tariff: {Tariff}, WorkingDaysInMonth: {WorkingDaysInMonth}, DaysWorked: {DaysWorked}";
+        }
 
         /// <summary>
         /// Проверка количества отработанных дней
