@@ -9,6 +9,9 @@ namespace View
     {
         static void Main(string[] args)
         {
+            System.Console.OutputEncoding = System.Text.Encoding.Unicode;
+            System.Console.InputEncoding = System.Text.Encoding.Unicode;
+
             var listOfWorkers = new List<WorkerBase>
             {
                 RandomWorker.GetRandomHourWorker(),
