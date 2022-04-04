@@ -11,8 +11,10 @@ namespace BusinessLogic
     /// </summary>
     public class TariffPayment : WorkerBase, ISalaryble
     {
-        //TODO: XML
-        
+        //TODO: XML +
+        /// <summary>
+        /// Отработанные дни
+        /// </summary>
         private int _daysWorked;
 
         /// <summary>
@@ -59,7 +61,8 @@ namespace BusinessLogic
         /// </summary>
         public override double Salary() => SalaryAccount += DaysWorked * Tariff / WorkingDaysInMonth * 0.87;
 
-        //TODO: XML
+        //TODO: XML +
+        /// <inheritdoc/>
         public override string Info()
         {
             return $"{InfoBase()}, Tariff: {Tariff}, WorkingDaysInMonth: {WorkingDaysInMonth}, DaysWorked: {DaysWorked}";

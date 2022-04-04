@@ -12,7 +12,10 @@ namespace BusinessLogic
     /// </summary>
     public class RandomWorker
     {
-        //TODO: XML
+        //TODO: XML +
+        /// <summary>
+        /// Экземпляр класса Random
+        /// </summary>
         private static Random _random = new Random(DateTime.Now.Second);
 
         /// <summary>
