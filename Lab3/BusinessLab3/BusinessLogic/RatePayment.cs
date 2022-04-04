@@ -50,7 +50,7 @@ namespace BusinessLogic
         /// </summary>
         public override double Salary() => SalaryAccount += DaysWorked * CostPerDay * 0.87;
 
-        
+        /// <inheritdoc/>
         public override string Info()
         {
             return $"{InfoBase()},  CostPerDay: {CostPerDay}, DaysWorked: {DaysWorked}";

@@ -12,7 +12,7 @@ namespace BusinessLogic
     /// </summary>
     public class RandomWorker
     {
-
+        //TODO: XML
         private static Random _random = new Random(DateTime.Now.Second);
 
         /// <summary>

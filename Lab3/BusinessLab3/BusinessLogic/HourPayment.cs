@@ -44,6 +44,7 @@ namespace BusinessLogic
         /// </summary>
         public override double Salary() => SalaryAccount += HoursWorked * CostPerHour * 0.87;
 
+        //TODO: XML
         public override string Info()
         {
             return $"{InfoBase()},  CostPerHour: {CostPerHour}, Worked: {HoursWorked}";

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLogic
 {
+    //TODO: XML
     public abstract class WorkerBase : ISalaryble
     {
         /// <summary>

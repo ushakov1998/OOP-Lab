@@ -31,8 +31,6 @@ namespace View
 
             Console.WriteLine("Начислим их $ и посмотрим список :)");
             ShowListOfWorkers(lists);
-
-
             
             static void ShowListOfWorkers(List<WorkerBase>[] lists)
             {
@@ -48,9 +46,6 @@ namespace View
                     }
                 }
             }
-
-
-
         }
     }
 }
