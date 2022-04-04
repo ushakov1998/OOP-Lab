@@ -14,6 +14,7 @@ namespace BusinessLogic
         /// </summary>
         /// <returns></returns>
         public virtual double Salary() => SalaryAccount;
+
         /// <summary>
         /// Имя 
         /// </summary>

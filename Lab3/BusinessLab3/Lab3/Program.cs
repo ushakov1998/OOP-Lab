@@ -33,12 +33,12 @@ namespace View
             
             static void ShowListOfWorkers(List<WorkerBase>[] lists)
             {
-                for (int i = 0; i < lists.Length; i++)
+                for (var i = 0; i < lists.Length; i++)
                 {
                     Console.WriteLine("");
                     Console.WriteLine($"List {i + 1}");
                     Console.WriteLine();
-                    for (int j = 0; j < lists[i].Count; j++)
+                    for (var j = 0; j < lists[i].Count; j++)
                     {
                         Console.WriteLine(lists[i][j].Info());
                         Console.WriteLine("");
