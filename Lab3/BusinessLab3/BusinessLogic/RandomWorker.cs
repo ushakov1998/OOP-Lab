@@ -12,7 +12,6 @@ namespace BusinessLogic
     /// </summary>
     public class RandomWorker
     {
-        //TODO: XML +
         /// <summary>
         /// Экземпляр класса Random
         /// </summary>

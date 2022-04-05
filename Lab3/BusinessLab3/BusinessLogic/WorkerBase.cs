@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 
 namespace BusinessLogic
 {
-    //TODO: XML +
     /// <summary>
     /// Абстрактный класс рабочего
     /// </summary>
