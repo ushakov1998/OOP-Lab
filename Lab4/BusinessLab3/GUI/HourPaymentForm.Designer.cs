@@ -32,9 +32,9 @@ namespace GUI
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HourPaymentForm));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.HoursWorked = new System.Windows.Forms.TextBox();
+            this.CostPerHour = new System.Windows.Forms.TextBox();
+            this.NextButtonHour = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.SuspendLayout();
             // 
@@ -58,30 +58,30 @@ namespace GUI
             this.label2.TabIndex = 1;
             this.label2.Text = "Стоимость часа";
             // 
-            // textBox1
+            // HoursWorked
             // 
-            this.textBox1.Location = new System.Drawing.Point(153, 37);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(60, 22);
-            this.textBox1.TabIndex = 2;
+            this.HoursWorked.Location = new System.Drawing.Point(153, 37);
+            this.HoursWorked.Name = "HoursWorked";
+            this.HoursWorked.Size = new System.Drawing.Size(60, 22);
+            this.HoursWorked.TabIndex = 2;
             // 
-            // textBox2
+            // CostPerHour
             // 
-            this.textBox2.Location = new System.Drawing.Point(153, 72);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(60, 22);
-            this.textBox2.TabIndex = 3;
+            this.CostPerHour.Location = new System.Drawing.Point(153, 72);
+            this.CostPerHour.Name = "CostPerHour";
+            this.CostPerHour.Size = new System.Drawing.Size(60, 22);
+            this.CostPerHour.TabIndex = 3;
             // 
-            // button1
+            // NextButtonHour
             // 
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.button1.Location = new System.Drawing.Point(162, 121);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Далее";
-            this.button1.UseVisualStyleBackColor = true;
+            this.NextButtonHour.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.NextButtonHour.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.NextButtonHour.Location = new System.Drawing.Point(162, 121);
+            this.NextButtonHour.Name = "NextButtonHour";
+            this.NextButtonHour.Size = new System.Drawing.Size(75, 23);
+            this.NextButtonHour.TabIndex = 4;
+            this.NextButtonHour.Text = "Далее";
+            this.NextButtonHour.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
@@ -99,9 +99,9 @@ namespace GUI
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(249, 150);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.NextButtonHour);
+            this.Controls.Add(this.CostPerHour);
+            this.Controls.Add(this.HoursWorked);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
@@ -119,9 +119,9 @@ namespace GUI
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox HoursWorked;
+        private System.Windows.Forms.TextBox CostPerHour;
+        private System.Windows.Forms.Button NextButtonHour;
         private System.Windows.Forms.GroupBox groupBox1;
     }
 }

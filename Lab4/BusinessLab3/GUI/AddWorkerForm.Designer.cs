@@ -117,6 +117,7 @@ namespace GUI
             // 
             // TypeOfSalaryBox
             // 
+            this.TypeOfSalaryBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.TypeOfSalaryBox.FormattingEnabled = true;
             this.TypeOfSalaryBox.Location = new System.Drawing.Point(97, 105);
             this.TypeOfSalaryBox.Name = "TypeOfSalaryBox";

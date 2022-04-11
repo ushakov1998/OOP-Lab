@@ -33,10 +33,10 @@ namespace GUI
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.WorkingDaysInMonth = new System.Windows.Forms.TextBox();
+            this.DaysWorked = new System.Windows.Forms.TextBox();
+            this.Tariff = new System.Windows.Forms.TextBox();
+            this.NextButtonTariff = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.SuspendLayout();
             // 
@@ -70,37 +70,37 @@ namespace GUI
             this.label3.TabIndex = 2;
             this.label3.Text = "Оклад";
             // 
-            // textBox1
+            // WorkingDaysInMonth
             // 
-            this.textBox1.Location = new System.Drawing.Point(191, 41);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(59, 22);
-            this.textBox1.TabIndex = 3;
+            this.WorkingDaysInMonth.Location = new System.Drawing.Point(191, 41);
+            this.WorkingDaysInMonth.Name = "WorkingDaysInMonth";
+            this.WorkingDaysInMonth.Size = new System.Drawing.Size(59, 22);
+            this.WorkingDaysInMonth.TabIndex = 3;
             // 
-            // textBox2
+            // DaysWorked
             // 
-            this.textBox2.Location = new System.Drawing.Point(150, 76);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 22);
-            this.textBox2.TabIndex = 4;
+            this.DaysWorked.Location = new System.Drawing.Point(150, 76);
+            this.DaysWorked.Name = "DaysWorked";
+            this.DaysWorked.Size = new System.Drawing.Size(100, 22);
+            this.DaysWorked.TabIndex = 4;
             // 
-            // textBox3
+            // Tariff
             // 
-            this.textBox3.Location = new System.Drawing.Point(150, 109);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 22);
-            this.textBox3.TabIndex = 5;
+            this.Tariff.Location = new System.Drawing.Point(150, 109);
+            this.Tariff.Name = "Tariff";
+            this.Tariff.Size = new System.Drawing.Size(100, 22);
+            this.Tariff.TabIndex = 5;
             // 
-            // button1
+            // NextButtonTariff
             // 
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.button1.Location = new System.Drawing.Point(191, 155);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Далее";
-            this.button1.UseVisualStyleBackColor = true;
+            this.NextButtonTariff.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.NextButtonTariff.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.NextButtonTariff.Location = new System.Drawing.Point(191, 155);
+            this.NextButtonTariff.Name = "NextButtonTariff";
+            this.NextButtonTariff.Size = new System.Drawing.Size(75, 23);
+            this.NextButtonTariff.TabIndex = 6;
+            this.NextButtonTariff.Text = "Далее";
+            this.NextButtonTariff.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
@@ -118,10 +118,10 @@ namespace GUI
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(280, 190);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.NextButtonTariff);
+            this.Controls.Add(this.Tariff);
+            this.Controls.Add(this.DaysWorked);
+            this.Controls.Add(this.WorkingDaysInMonth);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -141,10 +141,10 @@ namespace GUI
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox WorkingDaysInMonth;
+        private System.Windows.Forms.TextBox DaysWorked;
+        private System.Windows.Forms.TextBox Tariff;
+        private System.Windows.Forms.Button NextButtonTariff;
         private System.Windows.Forms.GroupBox groupBox1;
     }
 }
