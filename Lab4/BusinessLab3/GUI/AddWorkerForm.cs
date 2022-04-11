@@ -34,6 +34,14 @@ namespace GUI
         /// </summary>
         private const string _tariffPaymentItem = "Оклад";
 
+        private Dictionary<string, Func<Form>> _paymentFormDictionary =
+            new Dictionary<string, Func<Form>>()
+            {
+                { _hourlyPaymentItem, () => new HourPaymentForm() },
+                { _ratePaymentItem, () => new RatePaymentForm() },
+                { _tariffPaymentItem, () => new TariffPaymentForm() }
+            };
+
         /// <summary>
         /// Конструктор формы
         /// </summary>
@@ -45,6 +53,7 @@ namespace GUI
             TypeOfSalaryBox.Items.Add(_tariffPaymentItem);
             FormBorderStyle = FormBorderStyle.FixedDialog;
 
+            ButtonEnabler_TextChanged(this, EventArgs.Empty);
             NameBox.TextChanged += ButtonEnabler_TextChanged;
             SurnameBox.TextChanged += ButtonEnabler_TextChanged;
             TypeOfSalaryBox.SelectedIndexChanged += ButtonEnabler_TextChanged;
@@ -58,28 +67,9 @@ namespace GUI
         /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
-            switch (TypeOfSalaryBox.Text)
-            {
-                case _hourlyPaymentItem:
-                {
-                    var paymentForm = new HourPaymentForm();
-                    paymentForm.ShowDialog();
-                    break;
-                }
-                case _ratePaymentItem:
-                {
-                    var paymentForm = new RatePaymentForm();
-                    paymentForm.ShowDialog();
-                    break;
-                }
-                case _tariffPaymentItem:
-                {
-                    var paymentForm = new TariffPaymentForm();
-                    paymentForm.ShowDialog();
-                    break;
-                }
-            }
-
+            var tmpFormFunc = _paymentFormDictionary[TypeOfSalaryBox.Text];
+            var tmpForm = tmpFormFunc.Invoke();
+            tmpForm.ShowDialog();
         }
 
         /// <summary>
@@ -89,8 +79,9 @@ namespace GUI
         /// <param name="e"></param>
         private void ButtonEnabler_TextChanged(object sender, EventArgs e)
         {
-            NextButton.Enabled = NameBox.Text.Length > 0 && SurnameBox.Text.Length > 0 &&
-                                 TypeOfSalaryBox.SelectedIndex >= 0;
+            NextButton.Enabled = NameBox.Text.Length > 0 
+                                 && SurnameBox.Text.Length > 0 
+                                 && TypeOfSalaryBox.SelectedIndex >= 0;
         }
 
         private void NameBox_KeyPress(object sender, KeyPressEventArgs e)
