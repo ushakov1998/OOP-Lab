@@ -30,33 +30,33 @@ namespace GUI
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HourPaymentForm));
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.LabelHoursWorked = new System.Windows.Forms.Label();
+            this.LabelCostPerHour = new System.Windows.Forms.Label();
             this.HoursWorked = new System.Windows.Forms.TextBox();
             this.CostPerHour = new System.Windows.Forms.TextBox();
             this.NextButtonHour = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.SuspendLayout();
             // 
-            // label1
+            // LabelHoursWorked
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(22, 39);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(109, 15);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Отработано часов";
+            this.LabelHoursWorked.AutoSize = true;
+            this.LabelHoursWorked.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.LabelHoursWorked.Location = new System.Drawing.Point(22, 39);
+            this.LabelHoursWorked.Name = "LabelHoursWorked";
+            this.LabelHoursWorked.Size = new System.Drawing.Size(109, 15);
+            this.LabelHoursWorked.TabIndex = 0;
+            this.LabelHoursWorked.Text = "Отработано часов";
             // 
-            // label2
+            // LabelCostPerHour
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(22, 74);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(96, 15);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Стоимость часа";
+            this.LabelCostPerHour.AutoSize = true;
+            this.LabelCostPerHour.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.LabelCostPerHour.Location = new System.Drawing.Point(22, 74);
+            this.LabelCostPerHour.Name = "LabelCostPerHour";
+            this.LabelCostPerHour.Size = new System.Drawing.Size(96, 15);
+            this.LabelCostPerHour.TabIndex = 1;
+            this.LabelCostPerHour.Text = "Стоимость часа";
             // 
             // HoursWorked
             // 
@@ -102,8 +102,8 @@ namespace GUI
             this.Controls.Add(this.NextButtonHour);
             this.Controls.Add(this.CostPerHour);
             this.Controls.Add(this.HoursWorked);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.LabelCostPerHour);
+            this.Controls.Add(this.LabelHoursWorked);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -117,8 +117,8 @@ namespace GUI
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label LabelHoursWorked;
+        private System.Windows.Forms.Label LabelCostPerHour;
         private System.Windows.Forms.TextBox HoursWorked;
         private System.Windows.Forms.TextBox CostPerHour;
         private System.Windows.Forms.Button NextButtonHour;

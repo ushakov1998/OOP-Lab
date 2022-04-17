@@ -32,8 +32,8 @@ namespace GUI
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RatePaymentForm));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.DaysWorked = new System.Windows.Forms.TextBox();
-            this.CostPerDay = new System.Windows.Forms.TextBox();
+            this.DaysWorkedBox = new System.Windows.Forms.TextBox();
+            this.CostPerDayBox = new System.Windows.Forms.TextBox();
             this.NextButtonRate = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
@@ -59,19 +59,19 @@ namespace GUI
             this.label2.TabIndex = 1;
             this.label2.Text = "Стоимость дня";
             // 
-            // DaysWorked
+            // DaysWorkedBox
             // 
-            this.DaysWorked.Location = new System.Drawing.Point(147, 38);
-            this.DaysWorked.Name = "DaysWorked";
-            this.DaysWorked.Size = new System.Drawing.Size(53, 22);
-            this.DaysWorked.TabIndex = 2;
+            this.DaysWorkedBox.Location = new System.Drawing.Point(147, 38);
+            this.DaysWorkedBox.Name = "DaysWorkedBox";
+            this.DaysWorkedBox.Size = new System.Drawing.Size(53, 22);
+            this.DaysWorkedBox.TabIndex = 2;
             // 
-            // CostPerDay
+            // CostPerDayBox
             // 
-            this.CostPerDay.Location = new System.Drawing.Point(131, 76);
-            this.CostPerDay.Name = "CostPerDay";
-            this.CostPerDay.Size = new System.Drawing.Size(69, 22);
-            this.CostPerDay.TabIndex = 3;
+            this.CostPerDayBox.Location = new System.Drawing.Point(131, 76);
+            this.CostPerDayBox.Name = "CostPerDayBox";
+            this.CostPerDayBox.Size = new System.Drawing.Size(69, 22);
+            this.CostPerDayBox.TabIndex = 3;
             // 
             // NextButtonRate
             // 
@@ -82,6 +82,7 @@ namespace GUI
             this.NextButtonRate.TabIndex = 4;
             this.NextButtonRate.Text = "Далее";
             this.NextButtonRate.UseVisualStyleBackColor = true;
+            this.NextButtonRate.Click += new System.EventHandler(this.NextButtonRate_Click);
             // 
             // groupBox1
             // 
@@ -101,8 +102,8 @@ namespace GUI
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(227, 163);
             this.Controls.Add(this.NextButtonRate);
-            this.Controls.Add(this.CostPerDay);
-            this.Controls.Add(this.DaysWorked);
+            this.Controls.Add(this.CostPerDayBox);
+            this.Controls.Add(this.DaysWorkedBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -122,8 +123,8 @@ namespace GUI
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox DaysWorked;
-        private System.Windows.Forms.TextBox CostPerDay;
+        private System.Windows.Forms.TextBox DaysWorkedBox;
+        private System.Windows.Forms.TextBox CostPerDayBox;
         private System.Windows.Forms.Button NextButtonRate;
         private System.Windows.Forms.GroupBox groupBox1;
     }

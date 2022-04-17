@@ -34,6 +34,7 @@ namespace GUI
         /// </summary>
         private const string _tariffPaymentItem = "Оклад";
 
+
         private Dictionary<string, Func<Form>> _paymentFormDictionary =
             new Dictionary<string, Func<Form>>()
             {
