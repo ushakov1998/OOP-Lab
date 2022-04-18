@@ -13,8 +13,11 @@ namespace GUI
 {
     public partial class RatePaymentForm : Form
     {
-        public RatePaymentForm()
+        private RatePayment _ratePayment;
+
+        public RatePaymentForm(RatePayment ratePayment)
         {
+            _ratePayment = ratePayment;
             InitializeComponent();
             NextButtonRate.Enabled = false;
             DaysWorkedBox.TextChanged += ButtonEnabler_TextChanged;
@@ -27,12 +30,8 @@ namespace GUI
         /// <param name="e"></param>
         private void NextButtonRate_Click(object sender, EventArgs e)
         {
-            var Salary = new RatePayment()
-            {
-                DaysWorked = Int32.Parse(DaysWorkedBox.Text),
-                CostPerDay = Double.Parse(CostPerDayBox.Text)
-            };
-
+            _ratePayment.CostPerDay = Double.Parse(CostPerDayBox.Text);
+            _ratePayment.DaysWorked = Int32.Parse(DaysWorkedBox.Text);
         }
 
         private void ButtonEnabler_TextChanged(object sender, EventArgs e)

@@ -35,12 +35,12 @@ namespace GUI
         private const string _tariffPaymentItem = "Оклад";
 
 
-        private Dictionary<string, Func<Form>> _paymentFormDictionary =
-            new Dictionary<string, Func<Form>>()
+        private Dictionary<string, Func<WorkerBase, Form>> _paymentFormDictionary =
+            new Dictionary<string, Func<WorkerBase, Form>>()
             {
-                { _hourlyPaymentItem, () => new HourPaymentForm() },
-                { _ratePaymentItem, () => new RatePaymentForm() },
-                { _tariffPaymentItem, () => new TariffPaymentForm() }
+                { _hourlyPaymentItem, (workerBase) => new HourPaymentForm() },
+                { _ratePaymentItem, (workerBase) => new RatePaymentForm(workerBase) },
+                { _tariffPaymentItem, (workerBase) => new TariffPaymentForm() }
             };
 
         /// <summary>
@@ -69,7 +69,9 @@ namespace GUI
         private void button2_Click(object sender, EventArgs e)
         {
             var tmpFormFunc = _paymentFormDictionary[TypeOfSalaryBox.Text];
-            var tmpForm = tmpFormFunc.Invoke();
+            var worker = new RatePayment("a", "b", 1.0, 0, 0);
+            
+            var tmpForm = tmpFormFunc.Invoke(worker);
             tmpForm.ShowDialog();
         }
 
