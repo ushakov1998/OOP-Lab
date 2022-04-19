@@ -32,8 +32,8 @@ namespace GUI
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HourPaymentForm));
             this.LabelHoursWorked = new System.Windows.Forms.Label();
             this.LabelCostPerHour = new System.Windows.Forms.Label();
-            this.HoursWorked = new System.Windows.Forms.TextBox();
-            this.CostPerHour = new System.Windows.Forms.TextBox();
+            this.HoursWorkedBox = new System.Windows.Forms.TextBox();
+            this.CostPerHourBox = new System.Windows.Forms.TextBox();
             this.NextButtonHour = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.SuspendLayout();
@@ -58,19 +58,19 @@ namespace GUI
             this.LabelCostPerHour.TabIndex = 1;
             this.LabelCostPerHour.Text = "Стоимость часа";
             // 
-            // HoursWorked
+            // HoursWorkedBox
             // 
-            this.HoursWorked.Location = new System.Drawing.Point(153, 37);
-            this.HoursWorked.Name = "HoursWorked";
-            this.HoursWorked.Size = new System.Drawing.Size(60, 22);
-            this.HoursWorked.TabIndex = 2;
+            this.HoursWorkedBox.Location = new System.Drawing.Point(153, 37);
+            this.HoursWorkedBox.Name = "HoursWorkedBox";
+            this.HoursWorkedBox.Size = new System.Drawing.Size(60, 22);
+            this.HoursWorkedBox.TabIndex = 2;
             // 
-            // CostPerHour
+            // CostPerHourBox
             // 
-            this.CostPerHour.Location = new System.Drawing.Point(153, 72);
-            this.CostPerHour.Name = "CostPerHour";
-            this.CostPerHour.Size = new System.Drawing.Size(60, 22);
-            this.CostPerHour.TabIndex = 3;
+            this.CostPerHourBox.Location = new System.Drawing.Point(153, 72);
+            this.CostPerHourBox.Name = "CostPerHourBox";
+            this.CostPerHourBox.Size = new System.Drawing.Size(60, 22);
+            this.CostPerHourBox.TabIndex = 3;
             // 
             // NextButtonHour
             // 
@@ -82,6 +82,7 @@ namespace GUI
             this.NextButtonHour.TabIndex = 4;
             this.NextButtonHour.Text = "Далее";
             this.NextButtonHour.UseVisualStyleBackColor = true;
+            this.NextButtonHour.Click += new System.EventHandler(this.NextButtonHour_Click);
             // 
             // groupBox1
             // 
@@ -100,8 +101,8 @@ namespace GUI
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(249, 150);
             this.Controls.Add(this.NextButtonHour);
-            this.Controls.Add(this.CostPerHour);
-            this.Controls.Add(this.HoursWorked);
+            this.Controls.Add(this.CostPerHourBox);
+            this.Controls.Add(this.HoursWorkedBox);
             this.Controls.Add(this.LabelCostPerHour);
             this.Controls.Add(this.LabelHoursWorked);
             this.Controls.Add(this.groupBox1);
@@ -119,8 +120,8 @@ namespace GUI
 
         private System.Windows.Forms.Label LabelHoursWorked;
         private System.Windows.Forms.Label LabelCostPerHour;
-        private System.Windows.Forms.TextBox HoursWorked;
-        private System.Windows.Forms.TextBox CostPerHour;
+        private System.Windows.Forms.TextBox HoursWorkedBox;
+        private System.Windows.Forms.TextBox CostPerHourBox;
         private System.Windows.Forms.Button NextButtonHour;
         private System.Windows.Forms.GroupBox groupBox1;
     }

@@ -101,6 +101,7 @@ namespace GUI
             this.NextButtonTariff.TabIndex = 6;
             this.NextButtonTariff.Text = "Далее";
             this.NextButtonTariff.UseVisualStyleBackColor = true;
+            this.NextButtonTariff.Click += new System.EventHandler(this.NextButtonTariff_Click);
             // 
             // groupBox1
             // 

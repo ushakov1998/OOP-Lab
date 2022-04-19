@@ -8,20 +8,10 @@ namespace GUI
     /// </summary>
     public class WorkerEventArgs : EventArgs
     {
-
-        private WorkerBase _sendingWorker;
-
         /// <summary>
         /// Worker для передачи
         /// </summary>
-        public WorkerBase SendingWorker
-        {
-            get => _sendingWorker;
-            private set
-            {
-                _sendingWorker = value;
-            }
-        }
+        public WorkerBase SendingWorker { get; private set; }
 
         /// <summary>
         /// Конструктор для передачи Worker
@@ -29,7 +19,10 @@ namespace GUI
         /// <param name="sendingWorker">Работяга</param>
         public WorkerEventArgs(WorkerBase sendingWorker)
         {
-            SendingWorker = sendingWorker;
+            if (sendingWorker != null)
+            {
+                this.SendingWorker = sendingWorker;
+            }
         }
 
     }
