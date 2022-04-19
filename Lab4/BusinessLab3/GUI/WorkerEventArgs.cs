@@ -19,10 +19,12 @@ namespace GUI
         /// <param name="sendingWorker">Работяга</param>
         public WorkerEventArgs(WorkerBase sendingWorker)
         {
-            if (sendingWorker != null)
+            if (sendingWorker == null)
             {
-                this.SendingWorker = sendingWorker;
+                throw new Exception("Null!!!!!");
             }
+
+            this.SendingWorker = sendingWorker;
         }
 
     }
