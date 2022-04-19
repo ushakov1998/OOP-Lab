@@ -69,11 +69,21 @@ namespace GUI
         private void button2_Click(object sender, EventArgs e)
         {
             var tmpFormFunc = _paymentFormDictionary[TypeOfSalaryBox.Text];
-            var workerRate = new RatePayment("a", "b", 1.0, 0, 0);
-            var workerTariff = new TariffPayment("a", "b",0, 0, 0, 0);
-            var workerHour = new HourPayment("a", "b", 1.0, 0, 0);
+            WorkerBase tmpWorker = null;
+            switch (TypeOfSalaryBox.Text)
+            {
+                case _hourlyPaymentItem:
+                    tmpWorker = new RatePayment("a", "b", 1.0, 0, 0);
+                    break;
+                case _ratePaymentItem:
+                    tmpWorker = new TariffPayment("a", "b", 1.0, 0, 0, 0);
+                    break;
+                case _tariffPaymentItem:
+                    tmpWorker = new HourPayment("a", "b", 1.0, 0, 0);
+                    break;
+            }
             ///? Несколько Invoke
-            var tmpFormRate = tmpFormFunc.Invoke(workerRate);
+            var tmpFormRate = tmpFormFunc.Invoke(tmpWorker);
 
 
             tmpFormRate.ShowDialog();
