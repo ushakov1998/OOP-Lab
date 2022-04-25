@@ -41,10 +41,6 @@ namespace GUI
             this.AddWorker = new System.Windows.Forms.Button();
             this.SaveButton = new System.Windows.Forms.Button();
             this.OpenButton = new System.Windows.Forms.Button();
-            this.workerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Surname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.typeOfSalary = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SalaryAccount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridWorkers)).BeginInit();
             this.groupDataGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -53,11 +49,6 @@ namespace GUI
             // DataGridWorkers
             // 
             this.DataGridWorkers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DataGridWorkers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.workerName,
-            this.Surname,
-            this.typeOfSalary,
-            this.SalaryAccount});
             this.DataGridWorkers.Location = new System.Drawing.Point(18, 21);
             this.DataGridWorkers.Name = "DataGridWorkers";
             this.DataGridWorkers.RowHeadersVisible = false;
@@ -181,32 +172,6 @@ namespace GUI
             this.OpenButton.UseVisualStyleBackColor = true;
             this.OpenButton.Click += new System.EventHandler(this.OpenButton_Click);
             // 
-            // workerName
-            // 
-            this.workerName.HeaderText = "Имя";
-            this.workerName.Name = "workerName";
-            this.workerName.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // Surname
-            // 
-            this.Surname.HeaderText = "Фамилия";
-            this.Surname.Name = "Surname";
-            this.Surname.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // typeOfSalary
-            // 
-            this.typeOfSalary.HeaderText = "Тип начисляемой заработной платы";
-            this.typeOfSalary.Name = "typeOfSalary";
-            this.typeOfSalary.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.typeOfSalary.Width = 120;
-            // 
-            // SalaryAccount
-            // 
-            this.SalaryAccount.HeaderText = "Зарплата";
-            this.SalaryAccount.Name = "SalaryAccount";
-            this.SalaryAccount.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.SalaryAccount.Width = 101;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
@@ -251,10 +216,6 @@ namespace GUI
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn workerName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Surname;
-        private System.Windows.Forms.DataGridViewTextBoxColumn typeOfSalary;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SalaryAccount;
     }
 }
 

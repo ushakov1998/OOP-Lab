@@ -16,7 +16,7 @@ namespace GUI
         /// <summary>
         /// Лист работников
         /// </summary>
-        private List<WorkerBase> _workersList = new List<WorkerBase>();
+        private BindingList<WorkerBase> _workersList = new BindingList<WorkerBase>();
 
         /// <summary>
         /// Текст для запроса
@@ -29,25 +29,19 @@ namespace GUI
         public MainForm()
         {
             InitializeComponent();
+            DataGridWorkers.DataSource = _workersList;
         }
-
+        ///
         private void AddWorker_Click(object sender, EventArgs e)
         {
             AddWorkerForm addWorkerForm = new AddWorkerForm();
-            addWorkerForm.SendDataFromFormEvent += AddWorkerFormEvent;
+            addWorkerForm.SendDataFromFormEvent += (O, Args) =>
+            {
+                _workersList.Add(Args.SendingWorker);
+            };
             addWorkerForm.ShowDialog();
         }
 
-        /// <summary>
-        /// Кнопка добавить
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void AddWorkerFormEvent(object sender, WorkerEventArgs e)
-        {
-            _workersList.Add(e.SendingWorker);
-            ShowList();
-        }
 
         /// <summary>
         /// Вывод листа в DataGrid
@@ -114,7 +108,7 @@ namespace GUI
                 var path = saveFileDialog.FileName.ToString();
                 try
                 {
-                    Serializer.SaveFile(_workersList, path);
+                    /*Serializer.SaveFile(_workersList, path);*/
                 }
                 catch (Exception exception)
                 {
@@ -139,7 +133,7 @@ namespace GUI
                 var path = openFileDialog.FileName.ToString();
                 try
                 {
-                    _workersList = Serializer.OpenFile(path);
+                    /*_workersList = Serializer.OpenFile(path);*/
                     ShowList();
                 }
                 catch (Exception exception)

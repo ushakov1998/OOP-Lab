@@ -17,7 +17,7 @@ namespace GUI
         /// <summary>
         /// Событие для передачи данных
         /// </summary>
-        public event EventHandler<WorkerEventArgs> SendDataFromFormEvent; 
+        public EventHandler<WorkerEventArgs> SendDataFromFormEvent; 
 
         /// <summary>
         /// Почасовая оплата
@@ -34,14 +34,8 @@ namespace GUI
         /// </summary>
         private const string _tariffPaymentItem = "Оклад";
 
+        private WorkerBase WorkerSending { get; set; }
 
-        private Dictionary<string, Func<WorkerBase, Form>> _paymentFormDictionary =
-            new Dictionary<string, Func<WorkerBase, Form>>()
-            {
-                { _hourlyPaymentItem, (workerBase) => new HourPaymentForm((HourPayment) workerBase) },
-                { _ratePaymentItem, (workerBase) => new RatePaymentForm((RatePayment) workerBase) },
-                { _tariffPaymentItem, (workerBase) => new TariffPaymentForm((TariffPayment) workerBase)}
-            };
 
         /// <summary>
         /// Конструктор формы
@@ -53,8 +47,11 @@ namespace GUI
             TypeOfSalaryBox.Items.Add(_ratePaymentItem);
             TypeOfSalaryBox.Items.Add(_tariffPaymentItem);
             FormBorderStyle = FormBorderStyle.FixedDialog;
+            PerHourGroupBox.Visible = false;
+            TariffGroupBox.Visible = false;
+            RateGroupBox.Visible = false;
 
-            ButtonEnabler_TextChanged(this, EventArgs.Empty);
+            
             NameBox.TextChanged += ButtonEnabler_TextChanged;
             SurnameBox.TextChanged += ButtonEnabler_TextChanged;
             TypeOfSalaryBox.SelectedIndexChanged += ButtonEnabler_TextChanged;
@@ -68,25 +65,24 @@ namespace GUI
         /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
-            var tmpFormFunc = _paymentFormDictionary[TypeOfSalaryBox.Text];
-            WorkerBase tmpWorker = null;
             switch (TypeOfSalaryBox.Text)
             {
                 case _hourlyPaymentItem:
-                    tmpWorker = new RatePayment("a", "b", 1.0, 0, 0);
+                    WorkerSending = new HourPayment(NameBox.Text, SurnameBox.Text, 0,
+                        Convert.ToInt32(HoursWorkedBox.Text) , Convert.ToDouble(CostPerHourBox.Text));
                     break;
                 case _ratePaymentItem:
-                    tmpWorker = new TariffPayment("a", "b", 1.0, 0, 0, 0);
+                    WorkerSending = new RatePayment(NameBox.Text, SurnameBox.Text, 0,+
+                        Convert.ToInt32(WorkedDaysRateNumeric.Text), Convert.ToDouble(CostPerDayBox));
                     break;
                 case _tariffPaymentItem:
-                    tmpWorker = new HourPayment("a", "b", 1.0, 0, 0);
+                    WorkerSending = new TariffPayment(NameBox.Text, SurnameBox.Text, 0,
+                        Convert.ToDouble(TariffBox.Text), Convert.ToInt32(MonthWorkedDaysNumeric.Text), 
+                        Convert.ToInt32(DaysWorkedTariffNumeric.Text));
                     break;
             }
-            ///? Несколько Invoke
-            var tmpFormRate = tmpFormFunc.Invoke(tmpWorker);
-
-
-            tmpFormRate.ShowDialog();
+            WorkerSending.Salary();
+            SendDataFromFormEvent.Invoke(this,new WorkerEventArgs(WorkerSending));
         }
 
         /// <summary>
@@ -124,6 +120,38 @@ namespace GUI
                     e.Handled = true;
                 }
             }
+        }
+
+        private void TypeOfSalaryBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (TypeOfSalaryBox.Text)
+            {
+                case _hourlyPaymentItem:
+                    PerHourGroupBox.Visible = true;
+                    RateGroupBox.Visible = false;
+                    TariffGroupBox.Visible = false;
+                    break;
+                case _ratePaymentItem:
+                    RateGroupBox.Visible = true;
+                    TariffGroupBox.Visible = false;
+                    PerHourGroupBox.Visible = false;
+                    break;
+                case _tariffPaymentItem:
+                    TariffGroupBox.Visible = true;
+                    RateGroupBox.Visible = false;
+                    PerHourGroupBox.Visible = false;
+                    break;
+            }
+        }
+
+        private void CheckTextBox(object sender, KeyPressEventArgs e)
+        {
+            char number = e.KeyChar;
+            if (!Char.IsDigit(number) && e.KeyChar != (char) Keys.Back && e.KeyChar != 44)
+            {
+                e.Handled = true;
+            }
+
         }
     }
 }

@@ -24,7 +24,7 @@ namespace GUI
                 throw new Exception("Null!!!!!");
             }
 
-            this.SendingWorker = sendingWorker;
+            SendingWorker = sendingWorker;
         }
 
     }
