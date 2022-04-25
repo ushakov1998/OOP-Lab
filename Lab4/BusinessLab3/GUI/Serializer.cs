@@ -22,7 +22,7 @@ namespace GUI
         /// <summary>
         /// Сохранение листа в файл
         /// </summary>
-        /// <param name="wokerList">Лист</param>
+        /// <param name="workerList">Лист</param>
         /// <param name="path">Путь к файлу</param>
         public static void SaveFile(List<WorkerBase> workerList, string path)
         {

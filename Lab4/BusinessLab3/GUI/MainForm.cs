@@ -1,16 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using BusinessLogic;
 
 namespace GUI
 {
+    //TODO: XML
     public partial class MainForm : Form
     {
         /// <summary>
@@ -59,12 +55,11 @@ namespace GUI
         /// <param name="e"></param>
         private void RemoveWorker_Click(object sender, EventArgs e)
         {
-            if (!(DataGridWorkers.CurrentRow is null))
-            {
-                var workerToRemove = DataGridWorkers.CurrentRow.DataBoundItem;
-                _workersList.Remove((WorkerBase) workerToRemove);
-                ShowList();
-            }
+            if (DataGridWorkers.CurrentRow is null) return;
+
+            var workerToRemove = DataGridWorkers.CurrentRow.DataBoundItem;
+            _workersList.Remove((WorkerBase) workerToRemove);
+            ShowList();
         }
 
         /// <summary>
@@ -88,6 +83,7 @@ namespace GUI
         private void SearchBox_Leave(object sender, EventArgs e)
         {
             if (SearchBox.Text != "") return;
+
             SearchBox.Text = _searchBoxDefaultText;
             SearchBox.ForeColor = Color.Gray;
         }
@@ -103,17 +99,16 @@ namespace GUI
             {
                 Filter = "Text files(*.xml)|*.xml|All files(*.*)|*.*"
             };
-            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            if (saveFileDialog.ShowDialog() != DialogResult.OK) return;
+            
+            var path = saveFileDialog.FileName.ToString();
+            try
             {
-                var path = saveFileDialog.FileName.ToString();
-                try
-                {
-                    /*Serializer.SaveFile(_workersList, path);*/
-                }
-                catch (Exception exception)
-                {
-                    MessageBox.Show($"{exception.Message}");
-                }
+                /*Serializer.SaveFile(_workersList, path);*/
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show($"{exception.Message}");
             }
         }
 
@@ -128,18 +123,17 @@ namespace GUI
             {
                 Filter = "Text files(*.xml)|*.xml|All files(*.*)|*.*"
             };
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            if (openFileDialog.ShowDialog() != DialogResult.OK) return;
+            
+            var path = openFileDialog.FileName.ToString();
+            try
             {
-                var path = openFileDialog.FileName.ToString();
-                try
-                {
-                    /*_workersList = Serializer.OpenFile(path);*/
-                    ShowList();
-                }
-                catch (Exception exception)
-                {
-                    MessageBox.Show($"{exception.Message}");
-                }
+                /*_workersList = Serializer.OpenFile(path);*/
+                ShowList();
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show($"{exception.Message}");
             }
 
         }

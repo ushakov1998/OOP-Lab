@@ -43,8 +43,7 @@ namespace BusinessLogic
         /// Зарплата
         /// </summary>
         public override double Salary() => SalaryAccount += HoursWorked * CostPerHour * 0.87;
-
-        //TODO: XML +
+        
         /// <inheritdoc/>
         public override string Info()
         {

@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using BusinessLogic;
 
@@ -33,6 +26,7 @@ namespace GUI
         /// Оплата по окладу
         /// </summary>
         private const string _tariffPaymentItem = "Оклад";
+
 
         private WorkerBase WorkerSending { get; set; }
 
@@ -67,6 +61,7 @@ namespace GUI
         {
             switch (TypeOfSalaryBox.Text)
             {
+                //TODO: RSDN
                 case _hourlyPaymentItem:
                     WorkerSending = new HourPayment(NameBox.Text, SurnameBox.Text, 0,
                         Convert.ToInt32(HoursWorkedBox.Text) , Convert.ToDouble(CostPerHourBox.Text));
@@ -82,7 +77,8 @@ namespace GUI
                     break;
             }
             WorkerSending.Salary();
-            SendDataFromFormEvent.Invoke(this,new WorkerEventArgs(WorkerSending));
+            //BUG
+            SendDataFromFormEvent?.Invoke(this,new WorkerEventArgs(WorkerSending));
         }
 
         /// <summary>
@@ -97,6 +93,7 @@ namespace GUI
                                  && TypeOfSalaryBox.SelectedIndex >= 0;
         }
 
+        //TODO: XML
         private void NameBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             const string letterPattern = @"[^а-я^ё^А-Я^Ё^-]";
@@ -122,6 +119,7 @@ namespace GUI
             }
         }
 
+        //TODO: XML
         private void TypeOfSalaryBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             switch (TypeOfSalaryBox.Text)
@@ -144,9 +142,11 @@ namespace GUI
             }
         }
 
+        //TODO: XML
         private void CheckTextBox(object sender, KeyPressEventArgs e)
         {
             char number = e.KeyChar;
+            //TODO: 44?
             if (!Char.IsDigit(number) && e.KeyChar != (char) Keys.Back && e.KeyChar != 44)
             {
                 e.Handled = true;

@@ -11,7 +11,7 @@ namespace GUI
         /// <summary>
         /// Worker для передачи
         /// </summary>
-        public WorkerBase SendingWorker { get; private set; }
+        public WorkerBase SendingWorker { get; }
 
         /// <summary>
         /// Конструктор для передачи Worker
@@ -19,12 +19,7 @@ namespace GUI
         /// <param name="sendingWorker">Работяга</param>
         public WorkerEventArgs(WorkerBase sendingWorker)
         {
-            if (sendingWorker == null)
-            {
-                throw new Exception("Null!!!!!");
-            }
-
-            SendingWorker = sendingWorker;
+            SendingWorker = sendingWorker ?? throw new Exception("Null!!!!!");
         }
 
     }
