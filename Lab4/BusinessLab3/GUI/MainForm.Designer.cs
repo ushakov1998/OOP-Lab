@@ -48,6 +48,11 @@ namespace GUI
             // 
             // DataGridWorkers
             // 
+            this.DataGridWorkers.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.DataGridWorkers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.DataGridWorkers.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.DataGridWorkers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataGridWorkers.Location = new System.Drawing.Point(18, 21);
             this.DataGridWorkers.Name = "DataGridWorkers";
@@ -63,6 +68,7 @@ namespace GUI
             this.SearchBox.Name = "SearchBox";
             this.SearchBox.Size = new System.Drawing.Size(195, 25);
             this.SearchBox.TabIndex = 1;
+            this.SearchBox.TextChanged += new System.EventHandler(this.SearchBox_TextChanged);
             this.SearchBox.Enter += new System.EventHandler(this.SearchBox_Enter);
             this.SearchBox.Leave += new System.EventHandler(this.SearchBox_Leave);
             // 

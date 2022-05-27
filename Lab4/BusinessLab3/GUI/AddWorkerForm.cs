@@ -61,23 +61,26 @@ namespace GUI
         {
             switch (TypeOfSalaryBox.Text)
             {
-                //TODO: RSDN
+                //TODO: RSDN +
                 case _hourlyPaymentItem:
                     WorkerSending = new HourPayment(NameBox.Text, SurnameBox.Text, 0,
-                        Convert.ToInt32(HoursWorkedBox.Text) , Convert.ToDouble(CostPerHourBox.Text));
+                        Convert.ToInt32(HoursWorkedBox.Text) , 
+                        Convert.ToDouble(CostPerHourBox.Text));
                     break;
                 case _ratePaymentItem:
                     WorkerSending = new RatePayment(NameBox.Text, SurnameBox.Text, 0,+
-                        Convert.ToInt32(WorkedDaysRateNumeric.Text), Convert.ToDouble(CostPerDayBox));
+                        Convert.ToInt32(WorkedDaysRateNumeric.Text),
+                        Convert.ToDouble(CostPerDayBox.Text));
                     break;
                 case _tariffPaymentItem:
                     WorkerSending = new TariffPayment(NameBox.Text, SurnameBox.Text, 0,
-                        Convert.ToDouble(TariffBox.Text), Convert.ToInt32(MonthWorkedDaysNumeric.Text), 
+                        Convert.ToDouble(TariffBox.Text), 
+                        Convert.ToInt32(MonthWorkedDaysNumeric.Text), 
                         Convert.ToInt32(DaysWorkedTariffNumeric.Text));
                     break;
             }
             WorkerSending.Salary();
-            //BUG
+            //BUG +
             SendDataFromFormEvent?.Invoke(this,new WorkerEventArgs(WorkerSending));
         }
 
@@ -93,7 +96,12 @@ namespace GUI
                                  && TypeOfSalaryBox.SelectedIndex >= 0;
         }
 
-        //TODO: XML
+        //TODO: XML +
+        /// <summary>
+        /// Вввод имени и фамилии только на РУССКОМ!
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void NameBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             const string letterPattern = @"[^а-я^ё^А-Я^Ё^-]";
@@ -119,7 +127,12 @@ namespace GUI
             }
         }
 
-        //TODO: XML
+        //TODO: XML +
+        /// <summary>
+        /// Выбор типа оплаты в боксе
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void TypeOfSalaryBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             switch (TypeOfSalaryBox.Text)
@@ -142,12 +155,17 @@ namespace GUI
             }
         }
 
-        //TODO: XML
+        //TODO: XML +
+        /// <summary>
+        /// Ограничение по текстбоксу на ввод цифр
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CheckTextBox(object sender, KeyPressEventArgs e)
         {
             char number = e.KeyChar;
-            //TODO: 44?
-            if (!Char.IsDigit(number) && e.KeyChar != (char) Keys.Back && e.KeyChar != 44)
+            //TODO: 44? - запятая :)
+            if (!Char.IsDigit(number) && e.KeyChar != (char) Keys.Back && e.KeyChar !=44)
             {
                 e.Handled = true;
             }

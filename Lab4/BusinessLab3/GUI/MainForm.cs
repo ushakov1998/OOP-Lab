@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
@@ -6,7 +7,10 @@ using BusinessLogic;
 
 namespace GUI
 {
-    //TODO: XML
+    //TODO: XML +
+    /// <summary>
+    /// Основная форма
+    /// </summary>
     public partial class MainForm : Form
     {
         /// <summary>
@@ -62,6 +66,23 @@ namespace GUI
             ShowList();
         }
 
+        private void SearchBox_TextChanged(object sender, EventArgs e)
+        {
+            if (SearchBox.Text != _searchBoxDefaultText)
+            {
+                var searchedWorkerList = new List<WorkerBase>();
+                foreach (WorkerBase worker in _workersList)
+                {
+                    if (worker.SearchInfo().ToLower().Contains(SearchBox.Text.ToLower()))
+                    {
+                        searchedWorkerList.Add(worker);
+                    }
+                }
+                DataGridWorkers.DataSource = null;
+                DataGridWorkers.DataSource = searchedWorkerList;
+            }
+        }
+
         /// <summary>
         /// Событие при активном поле поиска
         /// </summary>
@@ -104,6 +125,7 @@ namespace GUI
             var path = saveFileDialog.FileName.ToString();
             try
             {
+
                 /*Serializer.SaveFile(_workersList, path);*/
             }
             catch (Exception exception)
@@ -128,7 +150,7 @@ namespace GUI
             var path = openFileDialog.FileName.ToString();
             try
             {
-                /*_workersList = Serializer.OpenFile(path);*/
+                _workersList = Serializer.OpenFile(path);
                 ShowList();
             }
             catch (Exception exception)

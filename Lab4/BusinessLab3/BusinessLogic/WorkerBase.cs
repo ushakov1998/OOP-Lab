@@ -215,6 +215,14 @@ namespace BusinessLogic
             return $"{Name} {Surname}, Account: {SalaryAccount} $";
         }
 
+        /// <summary>
+        /// Информация для поиска
+        /// </summary>
+        /// <returns></returns>
+        public string SearchInfo()
+        {
+            return $"{Name} {Surname} {SalaryAccount}";
+        }
     }
 }
 

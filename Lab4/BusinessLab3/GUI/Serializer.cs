@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -27,7 +28,7 @@ namespace GUI
         public static void SaveFile(List<WorkerBase> workerList, string path)
         {
             using var file = new FileStream(path, FileMode.Create, FileAccess.Write, FileShare.None);
-            _xmlSerializer.Serialize(file,workerList);
+            _xmlSerializer.Serialize(file, workerList);
         }
 
         /// <summary>
@@ -35,7 +36,7 @@ namespace GUI
         /// </summary>
         /// <param name="path"></param>
         /// <returns></returns>
-        public static List<WorkerBase> OpenFile(string path)
+        public static BindingList<WorkerBase> OpenFile(string path)
         {
             FileStream file = null;
             try
@@ -44,7 +45,7 @@ namespace GUI
                 using TextReader textReader = new StreamReader(file);
                 try
                 {
-                    return (List<WorkerBase>)_xmlSerializer.Deserialize(file);
+                    return (BindingList<WorkerBase>) _xmlSerializer.Deserialize(file);
                 }
                 catch
                 {
