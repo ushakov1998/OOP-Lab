@@ -59,9 +59,9 @@ namespace GUI
         /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
+            //BUG
             switch (TypeOfSalaryBox.Text)
             {
-                //TODO: RSDN +
                 case _hourlyPaymentItem:
                     WorkerSending = new HourPayment(NameBox.Text, SurnameBox.Text, 0,
                         Convert.ToInt32(HoursWorkedBox.Text) , 
@@ -80,7 +80,7 @@ namespace GUI
                     break;
             }
             WorkerSending.Salary();
-            //BUG +
+            
             SendDataFromFormEvent?.Invoke(this,new WorkerEventArgs(WorkerSending));
         }
 
@@ -95,8 +95,7 @@ namespace GUI
                                  && SurnameBox.Text.Length > 0 
                                  && TypeOfSalaryBox.SelectedIndex >= 0;
         }
-
-        //TODO: XML +
+        
         /// <summary>
         /// Вввод имени и фамилии только на РУССКОМ!
         /// </summary>
@@ -126,8 +125,7 @@ namespace GUI
                 }
             }
         }
-
-        //TODO: XML +
+        
         /// <summary>
         /// Выбор типа оплаты в боксе
         /// </summary>
@@ -154,8 +152,7 @@ namespace GUI
                     break;
             }
         }
-
-        //TODO: XML +
+        
         /// <summary>
         /// Ограничение по текстбоксу на ввод цифр
         /// </summary>
@@ -165,7 +162,7 @@ namespace GUI
         {
             char number = e.KeyChar;
             //TODO: 44? - запятая :)
-            if (!Char.IsDigit(number) && e.KeyChar != (char) Keys.Back && e.KeyChar !=44)
+            if (!Char.IsDigit(number) && e.KeyChar != (char) Keys.Back && e.KeyChar != 44)
             {
                 e.Handled = true;
             }

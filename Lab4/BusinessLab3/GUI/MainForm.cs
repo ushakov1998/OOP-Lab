@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 using BusinessLogic;
 
 namespace GUI
 {
-    //TODO: XML +
     /// <summary>
     /// Основная форма
     /// </summary>
@@ -116,6 +116,7 @@ namespace GUI
         /// <param name="e"></param>
         private void SaveButton_Click(object sender, EventArgs e)
         {
+            //TODO:
             var saveFileDialog = new SaveFileDialog
             {
                 Filter = "Text files(*.xml)|*.xml|All files(*.*)|*.*"
@@ -125,8 +126,7 @@ namespace GUI
             var path = saveFileDialog.FileName.ToString();
             try
             {
-
-                /*Serializer.SaveFile(_workersList, path);*/
+                Serializer.SaveFile(_workersList.ToList(), path);
             }
             catch (Exception exception)
             {
