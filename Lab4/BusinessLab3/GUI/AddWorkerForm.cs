@@ -204,5 +204,26 @@ namespace GUI
             }
             eKey.Handled = true;
         }
+
+        /// <summary>
+        /// Событие добавления рандом работяги на клик
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AllRandomButton_Click(object sender, EventArgs e)
+        {
+            var rnd = new Random();
+            var chosePayment = rnd.Next(3);
+
+            WorkerSending = chosePayment switch
+            {
+                0 => RandomWorker.GetRandomHourWorker(),
+                1 => RandomWorker.GetRandomRateWorker(),
+                2 => RandomWorker.GetRandomTariffWorker(),
+                _ => WorkerSending
+            };
+            WorkerSending.Salary();
+            SendDataFromFormEvent?.Invoke(this, new WorkerEventArgs(WorkerSending));
+        }
     }
 }

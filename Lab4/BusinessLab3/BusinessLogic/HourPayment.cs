@@ -65,5 +65,13 @@ namespace BusinessLogic
             CostPerHour = costPerHour;
         }
 
+        /// <summary>
+        /// XML конструктор
+        /// </summary>
+        protected HourPayment()
+        {
+
+        }
+
     }
 }

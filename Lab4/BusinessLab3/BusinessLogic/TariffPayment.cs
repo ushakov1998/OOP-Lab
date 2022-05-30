@@ -56,6 +56,14 @@ namespace BusinessLogic
         }
 
         /// <summary>
+        /// XML конструктор
+        /// </summary>
+        protected TariffPayment()
+        {
+
+        }
+
+        /// <summary>
         /// Расчет тарифной зарплаты
         /// </summary>
         public override double Salary() => SalaryAccount += DaysWorked * Tariff / WorkingDaysInMonth * 0.87;

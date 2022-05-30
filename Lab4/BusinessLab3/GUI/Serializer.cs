@@ -19,7 +19,7 @@ namespace GUI
         /// <summary>
         /// Сохранение листа в файл
         /// </summary>
-        /// <param name="workerList">Лист</param>
+        /// <param name="_workerList">Лист</param>
         /// <param name="path">Путь к файлу</param>
         public static void SaveFile(BindingList<WorkerBase> _workerList, string path)
         {

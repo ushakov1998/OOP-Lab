@@ -88,6 +88,5 @@ namespace BusinessLogic
 
             return randomTariffWorker;
         }
-
     }
 }

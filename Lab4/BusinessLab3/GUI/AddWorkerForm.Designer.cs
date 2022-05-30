@@ -55,6 +55,7 @@ namespace GUI
             this.TariffBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.AllRandomButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.PerHourGroupBox.SuspendLayout();
             this.RateGroupBox.SuspendLayout();
@@ -323,11 +324,24 @@ namespace GUI
             this.label4.TabIndex = 0;
             this.label4.Text = "Рабочих дней в месяце";
             // 
+            // AllRandomButton
+            // 
+            this.AllRandomButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("AllRandomButton.BackgroundImage")));
+            this.AllRandomButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.AllRandomButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.AllRandomButton.Location = new System.Drawing.Point(156, 303);
+            this.AllRandomButton.Name = "AllRandomButton";
+            this.AllRandomButton.Size = new System.Drawing.Size(27, 22);
+            this.AllRandomButton.TabIndex = 14;
+            this.AllRandomButton.UseVisualStyleBackColor = true;
+            this.AllRandomButton.Click += new System.EventHandler(this.AllRandomButton_Click);
+            // 
             // AddWorkerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(288, 340);
+            this.Controls.Add(this.AllRandomButton);
             this.Controls.Add(this.TariffGroupBox);
             this.Controls.Add(this.PerHourGroupBox);
             this.Controls.Add(this.RateGroupBox);
@@ -381,5 +395,6 @@ namespace GUI
         private System.Windows.Forms.NumericUpDown MonthWorkedDaysNumeric;
         private System.Windows.Forms.NumericUpDown DaysWorkedTariffNumeric;
         private System.Windows.Forms.NumericUpDown WorkedDaysRateNumeric;
+        private System.Windows.Forms.Button AllRandomButton;
     }
 }

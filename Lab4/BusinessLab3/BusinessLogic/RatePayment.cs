@@ -46,6 +46,13 @@ namespace BusinessLogic
         }
 
         /// <summary>
+        /// XML конструктор
+        /// </summary>
+        public RatePayment()
+        {
+
+        }
+        /// <summary>
         /// Зарплата
         /// </summary>
         public override double Salary() => SalaryAccount += DaysWorked * CostPerDay * 0.87;
