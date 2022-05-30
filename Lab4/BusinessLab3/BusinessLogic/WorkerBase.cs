@@ -1,12 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using System.Xml.Serialization;
 
 namespace BusinessLogic
 {
     /// <summary>
     /// Абстрактный класс рабочего
     /// </summary>
+    [XmlInclude(typeof(RatePayment))]
+    [XmlInclude(typeof(TariffPayment))]
+    [XmlInclude(typeof(HourPayment))]
     public abstract class WorkerBase : ISalaryble
     {
         /// <summary>
