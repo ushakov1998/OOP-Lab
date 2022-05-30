@@ -152,21 +152,57 @@ namespace GUI
                     break;
             }
         }
-        
+
         /// <summary>
-        /// Ограничение по текстбоксу на ввод цифр
+        /// Проверка полей на ввод
+        /// только целочисленных значений
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CheckTextBoxInt(object sender, KeyPressEventArgs e)
+        {
+            char numberInt = e.KeyChar;
+            if (!Char.IsDigit(numberInt) && numberInt != 8)
+            {
+                e.Handled = true;
+            }
+        }
+
+
+        /// <summary>
+        /// Ограничение по текстбоксу на ввод цифр c запятой
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void CheckTextBox(object sender, KeyPressEventArgs e)
         {
-            char number = e.KeyChar;
-            //TODO: 44? - запятая :)
-            if (!Char.IsDigit(number) && e.KeyChar != (char) Keys.Back && e.KeyChar != 44)
-            {
-                e.Handled = true;
-            }
+            var textBox = (TextBox)sender;
+            var eKey = (KeyPressEventArgs)e;
 
+            if (char.IsNumber(eKey.KeyChar))
+            {
+                if (textBox.Text.Length == 1)
+                {
+                    if (textBox.Text.Contains("0") && eKey.KeyChar != ',')
+                    {
+                        eKey.Handled = true;
+                    }
+                    else
+                    {
+                        return;
+                    }
+                }
+                else
+                {
+                    return;
+                }
+            }
+            if (char.IsControl(eKey.KeyChar) ||
+                !string.IsNullOrEmpty(textBox.Text) && eKey.KeyChar == ',' && !textBox.Text.Contains(","))
+            {
+                return;
+            }
+            eKey.Handled = true;
         }
     }
 }

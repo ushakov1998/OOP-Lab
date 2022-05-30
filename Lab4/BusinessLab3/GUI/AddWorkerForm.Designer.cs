@@ -40,14 +40,14 @@ namespace GUI
             this.TypeOfSalaryBox = new System.Windows.Forms.ComboBox();
             this.PerHourGroupBox = new System.Windows.Forms.GroupBox();
             this.CostPerHourBox = new System.Windows.Forms.TextBox();
+            this.HoursWorkedBox = new System.Windows.Forms.TextBox();
+            this.CostPerHourLabel2 = new System.Windows.Forms.Label();
+            this.WorkedHoursLabel1 = new System.Windows.Forms.Label();
             this.RateGroupBox = new System.Windows.Forms.GroupBox();
             this.WorkedDaysRateNumeric = new System.Windows.Forms.NumericUpDown();
             this.CostPerDayBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.HoursWorkedBox = new System.Windows.Forms.TextBox();
-            this.CostPerHourLabel2 = new System.Windows.Forms.Label();
-            this.WorkedHoursLabel1 = new System.Windows.Forms.Label();
             this.TariffGroupBox = new System.Windows.Forms.GroupBox();
             this.DaysWorkedTariffNumeric = new System.Windows.Forms.NumericUpDown();
             this.MonthWorkedDaysNumeric = new System.Windows.Forms.NumericUpDown();
@@ -155,7 +155,7 @@ namespace GUI
             this.PerHourGroupBox.Controls.Add(this.CostPerHourLabel2);
             this.PerHourGroupBox.Controls.Add(this.WorkedHoursLabel1);
             this.PerHourGroupBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.PerHourGroupBox.Location = new System.Drawing.Point(12, 169);
+            this.PerHourGroupBox.Location = new System.Drawing.Point(11, 175);
             this.PerHourGroupBox.Name = "PerHourGroupBox";
             this.PerHourGroupBox.Size = new System.Drawing.Size(262, 100);
             this.PerHourGroupBox.TabIndex = 9;
@@ -169,6 +169,32 @@ namespace GUI
             this.CostPerHourBox.Size = new System.Drawing.Size(83, 23);
             this.CostPerHourBox.TabIndex = 3;
             this.CostPerHourBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckTextBox);
+            // 
+            // HoursWorkedBox
+            // 
+            this.HoursWorkedBox.Location = new System.Drawing.Point(145, 20);
+            this.HoursWorkedBox.Name = "HoursWorkedBox";
+            this.HoursWorkedBox.Size = new System.Drawing.Size(83, 23);
+            this.HoursWorkedBox.TabIndex = 2;
+            this.HoursWorkedBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckTextBoxInt);
+            // 
+            // CostPerHourLabel2
+            // 
+            this.CostPerHourLabel2.AutoSize = true;
+            this.CostPerHourLabel2.Location = new System.Drawing.Point(17, 56);
+            this.CostPerHourLabel2.Name = "CostPerHourLabel2";
+            this.CostPerHourLabel2.Size = new System.Drawing.Size(96, 15);
+            this.CostPerHourLabel2.TabIndex = 1;
+            this.CostPerHourLabel2.Text = "Стоимость часа";
+            // 
+            // WorkedHoursLabel1
+            // 
+            this.WorkedHoursLabel1.AutoSize = true;
+            this.WorkedHoursLabel1.Location = new System.Drawing.Point(17, 24);
+            this.WorkedHoursLabel1.Name = "WorkedHoursLabel1";
+            this.WorkedHoursLabel1.Size = new System.Drawing.Size(122, 15);
+            this.WorkedHoursLabel1.TabIndex = 0;
+            this.WorkedHoursLabel1.Text = "Отработанные часы";
             // 
             // RateGroupBox
             // 
@@ -222,32 +248,6 @@ namespace GUI
             this.label2.TabIndex = 0;
             this.label2.Text = "Отработано дней";
             // 
-            // HoursWorkedBox
-            // 
-            this.HoursWorkedBox.Location = new System.Drawing.Point(145, 20);
-            this.HoursWorkedBox.Name = "HoursWorkedBox";
-            this.HoursWorkedBox.Size = new System.Drawing.Size(83, 23);
-            this.HoursWorkedBox.TabIndex = 2;
-            this.HoursWorkedBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckTextBox);
-            // 
-            // CostPerHourLabel2
-            // 
-            this.CostPerHourLabel2.AutoSize = true;
-            this.CostPerHourLabel2.Location = new System.Drawing.Point(17, 56);
-            this.CostPerHourLabel2.Name = "CostPerHourLabel2";
-            this.CostPerHourLabel2.Size = new System.Drawing.Size(96, 15);
-            this.CostPerHourLabel2.TabIndex = 1;
-            this.CostPerHourLabel2.Text = "Стоимость часа";
-            // 
-            // WorkedHoursLabel1
-            // 
-            this.WorkedHoursLabel1.AutoSize = true;
-            this.WorkedHoursLabel1.Location = new System.Drawing.Point(17, 24);
-            this.WorkedHoursLabel1.Name = "WorkedHoursLabel1";
-            this.WorkedHoursLabel1.Size = new System.Drawing.Size(122, 15);
-            this.WorkedHoursLabel1.TabIndex = 0;
-            this.WorkedHoursLabel1.Text = "Отработанные часы";
-            // 
             // TariffGroupBox
             // 
             this.TariffGroupBox.Controls.Add(this.DaysWorkedTariffNumeric);
@@ -257,7 +257,7 @@ namespace GUI
             this.TariffGroupBox.Controls.Add(this.label3);
             this.TariffGroupBox.Controls.Add(this.label4);
             this.TariffGroupBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.TariffGroupBox.Location = new System.Drawing.Point(12, 169);
+            this.TariffGroupBox.Location = new System.Drawing.Point(11, 175);
             this.TariffGroupBox.Name = "TariffGroupBox";
             this.TariffGroupBox.Size = new System.Drawing.Size(262, 116);
             this.TariffGroupBox.TabIndex = 13;

@@ -126,7 +126,8 @@ namespace GUI
             var path = saveFileDialog.FileName.ToString();
             try
             {
-                Serializer.SaveFile(_workersList.ToList(), path);
+                Serializer.SaveFile(_workersList, path);
+                ShowList();
             }
             catch (Exception exception)
             {
@@ -141,7 +142,7 @@ namespace GUI
         /// <param name="e"></param>
         private void OpenButton_Click(object sender, EventArgs e)
         {
-            var openFileDialog = new SaveFileDialog
+            var openFileDialog = new OpenFileDialog
             {
                 Filter = "Text files(*.xml)|*.xml|All files(*.*)|*.*"
             };
