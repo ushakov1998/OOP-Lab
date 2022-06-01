@@ -44,6 +44,7 @@ namespace GUI
             PerHourGroupBox.Visible = false;
             TariffGroupBox.Visible = false;
             RateGroupBox.Visible = false;
+            NextButton.Enabled = false;
 
             
             NameBox.TextChanged += ButtonEnabler_TextChanged;
@@ -212,6 +213,7 @@ namespace GUI
         /// <param name="e"></param>
         private void AllRandomButton_Click(object sender, EventArgs e)
         {
+            
             var rnd = new Random();
             var chosePayment = rnd.Next(3);
 

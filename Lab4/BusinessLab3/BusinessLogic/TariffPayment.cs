@@ -84,11 +84,11 @@ namespace BusinessLogic
         /// <param name="workingDaysInMonth">Всего рабочих дней в месяце</param>
         private static void ValidDaysWorked(int daysWorked, int workingDaysInMonth)
         {
-            if (daysWorked > workingDaysInMonth)
+            /*if (daysWorked > workingDaysInMonth)
             {
                 throw new ArgumentException("Рабочих дней больше, " +
                                             "чем рабочих дней в месяце!");
-            }
+            }*/
         }
     }
 }
