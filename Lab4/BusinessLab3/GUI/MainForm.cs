@@ -115,7 +115,6 @@ namespace GUI
         /// <param name="e"></param>
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            //TODO:
             var saveFileDialog = new SaveFileDialog
             {
                 Filter = "Text files(*.xml)|*.xml|All files(*.*)|*.*"

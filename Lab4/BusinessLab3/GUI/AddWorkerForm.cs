@@ -50,6 +50,13 @@ namespace GUI
             NameBox.TextChanged += ButtonEnabler_TextChanged;
             SurnameBox.TextChanged += ButtonEnabler_TextChanged;
             TypeOfSalaryBox.SelectedIndexChanged += ButtonEnabler_TextChanged;
+            HoursWorkedBox.TextChanged += ButtonEnabler_TextChanged;
+            CostPerHourBox.TextChanged += ButtonEnabler_TextChanged;
+            WorkedDaysRateNumeric.TextChanged += ButtonEnabler_TextChanged;
+            CostPerDayBox.TextChanged += ButtonEnabler_TextChanged;
+            MonthWorkedDaysNumeric.TextChanged += ButtonEnabler_TextChanged;
+            DaysWorkedTariffNumeric.TextChanged += ButtonEnabler_TextChanged;
+            TariffBox.TextChanged += ButtonEnabler_TextChanged;
 
         }
 
@@ -92,10 +99,33 @@ namespace GUI
         /// <param name="e"></param>
         private void ButtonEnabler_TextChanged(object sender, EventArgs e)
         {
-            NextButton.Enabled = NameBox.Text.Length > 0 
-                                 && SurnameBox.Text.Length > 0 
-                                 && TypeOfSalaryBox.SelectedIndex >= 0;
+            switch (TypeOfSalaryBox.Text)
+            {
+                 case _hourlyPaymentItem:
+                    NextButton.Enabled = NameBox.Text.Length > 0
+                                         && SurnameBox.Text.Length > 0
+                                         && TypeOfSalaryBox.SelectedIndex >= 0 
+                                         && HoursWorkedBox.Text.Length > 0 &&
+                                         CostPerHourBox.Text.Length > 0;
+                    break;
+                case _ratePaymentItem:
+                    NextButton.Enabled = NameBox.Text.Length > 0
+                                         && SurnameBox.Text.Length > 0
+                                         && TypeOfSalaryBox.SelectedIndex >= 0
+                                         && WorkedDaysRateNumeric.Text.Length > 0 &&
+                                         CostPerDayBox.Text.Length > 0;
+                    break;
+                case _tariffPaymentItem:
+                    NextButton.Enabled = NameBox.Text.Length > 0
+                                         && SurnameBox.Text.Length > 0
+                                         && TypeOfSalaryBox.SelectedIndex >= 0
+                                         && MonthWorkedDaysNumeric.Text.Length > 0 &&
+                                         DaysWorkedTariffNumeric.Text.Length > 0 &&
+                                         TariffBox.Text.Length > 0;
+                    break; 
+            }
         }
+
         
         /// <summary>
         /// Вввод имени и фамилии только на РУССКОМ!

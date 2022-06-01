@@ -156,7 +156,7 @@ namespace GUI
             this.PerHourGroupBox.Controls.Add(this.CostPerHourLabel2);
             this.PerHourGroupBox.Controls.Add(this.WorkedHoursLabel1);
             this.PerHourGroupBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.PerHourGroupBox.Location = new System.Drawing.Point(11, 175);
+            this.PerHourGroupBox.Location = new System.Drawing.Point(13, 169);
             this.PerHourGroupBox.Name = "PerHourGroupBox";
             this.PerHourGroupBox.Size = new System.Drawing.Size(262, 100);
             this.PerHourGroupBox.TabIndex = 9;
@@ -204,9 +204,9 @@ namespace GUI
             this.RateGroupBox.Controls.Add(this.label1);
             this.RateGroupBox.Controls.Add(this.label2);
             this.RateGroupBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.RateGroupBox.Location = new System.Drawing.Point(11, 175);
+            this.RateGroupBox.Location = new System.Drawing.Point(12, 169);
             this.RateGroupBox.Name = "RateGroupBox";
-            this.RateGroupBox.Size = new System.Drawing.Size(257, 94);
+            this.RateGroupBox.Size = new System.Drawing.Size(261, 116);
             this.RateGroupBox.TabIndex = 12;
             this.RateGroupBox.TabStop = false;
             this.RateGroupBox.Text = "Оплата по ставке";
@@ -258,7 +258,7 @@ namespace GUI
             this.TariffGroupBox.Controls.Add(this.label3);
             this.TariffGroupBox.Controls.Add(this.label4);
             this.TariffGroupBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.TariffGroupBox.Location = new System.Drawing.Point(11, 175);
+            this.TariffGroupBox.Location = new System.Drawing.Point(12, 169);
             this.TariffGroupBox.Name = "TariffGroupBox";
             this.TariffGroupBox.Size = new System.Drawing.Size(262, 116);
             this.TariffGroupBox.TabIndex = 13;
@@ -342,9 +342,9 @@ namespace GUI
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(288, 340);
             this.Controls.Add(this.AllRandomButton);
+            this.Controls.Add(this.RateGroupBox);
             this.Controls.Add(this.TariffGroupBox);
             this.Controls.Add(this.PerHourGroupBox);
-            this.Controls.Add(this.RateGroupBox);
             this.Controls.Add(this.NextButton);
             this.Controls.Add(this.NameBox);
             this.Controls.Add(this.groupBox1);
