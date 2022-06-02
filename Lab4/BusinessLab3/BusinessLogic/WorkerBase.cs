@@ -64,6 +64,7 @@ namespace BusinessLogic
         /// </summary>
         private double _salaryAccount;
 
+        //TODO: Не должно быть публичного set-а
         /// <summary>
         /// Зарплатный счет
         /// </summary>
