@@ -64,14 +64,14 @@ namespace BusinessLogic
         /// </summary>
         private double _salaryAccount;
 
-        //TODO: Не должно быть публичного set-а
+        //TODO: Не должно быть публичного set-а +
         /// <summary>
         /// Зарплатный счет
         /// </summary>
         public double SalaryAccount
         {
             get => _salaryAccount;
-            set => _salaryAccount = System.Math.Round(value,1);
+            protected set => _salaryAccount = System.Math.Round(value,1);
         }
 
         
