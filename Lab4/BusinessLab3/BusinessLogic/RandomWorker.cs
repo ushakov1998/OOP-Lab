@@ -22,8 +22,8 @@ namespace BusinessLogic
         /// </summary>
         private static string[] _names = new string[]
         {
-            "Hidan", "Isaac", "Deidara", "Morty",
-            "Harry", "Itachi", "Nagato", "Pain"
+            "Иван", "Петр", "Владимир", "Хрыч",
+            "Зимбаба", "Слава", "Руслан", "Бирабиджон"
         };
 
         /// <summary>
@@ -31,8 +31,8 @@ namespace BusinessLogic
         /// </summary>
         private static string[] _surnames = new string[]
         {
-            "Uciha", "Granger", "Potaki", "Riddle",
-            "Newton", "Potter", "Uzumaki", "Hanzo"
+            "Иванов", "Петров", "Сидоров", "Тронов",
+            "Барбитуратов", "Сиделов", "Кайфоломов", "Пуктин"
         };
 
         /// <summary>

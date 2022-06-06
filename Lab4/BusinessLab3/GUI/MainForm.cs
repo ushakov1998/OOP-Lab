@@ -29,6 +29,7 @@ namespace GUI
         {
             InitializeComponent();
             DataGridWorkers.DataSource = _workersList;
+            DataGridWorkers.ReadOnly = true;
         }
         ///
         private void AddWorker_Click(object sender, EventArgs e)
