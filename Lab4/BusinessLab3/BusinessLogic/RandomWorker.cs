@@ -82,9 +82,10 @@ namespace BusinessLogic
                 _names[random.Next(_names.Length)],
                 _surnames[random.Next(_surnames.Length)],
                 _random.Next(0, 5),
-                random.Next(10000, 60000),
-                random.Next(23, 25),
-                random.Next(20, 22));
+                _random.Next(10000, 60000),
+                _random.Next(23, 25),
+                _random.Next(10, 11)
+                );
 
             return randomTariffWorker;
         }

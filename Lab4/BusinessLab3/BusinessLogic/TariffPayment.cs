@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BusinessLogic
 {
@@ -17,7 +13,12 @@ namespace BusinessLogic
         private int _daysWorked;
 
         /// <summary>
-        /// Количество отработанных дней
+        /// Количество рабочих дней в месяце
+        /// </summary>
+        public int WorkingDaysInMonth { get ; set; }
+
+        /// <summary>
+        /// П
         /// </summary>
         public int DaysWorked
         {
@@ -28,16 +29,20 @@ namespace BusinessLogic
                 _daysWorked = value;
             }
         }
-        /// <summary>
-        /// Количество рабочих дней в месяце
-        /// </summary>
-        public int WorkingDaysInMonth { get; set; }
 
         /// <summary>
         /// Оклад
         /// </summary>
-        public double Tariff { get; set; } 
-        
+        public double Tariff { get; set; }
+
+        /// <summary>
+        /// XML конструктор
+        /// </summary>
+        protected TariffPayment()
+        {
+
+        }
+
         /// <summary>
         /// Конструктор класс
         /// </summary>
@@ -48,20 +53,14 @@ namespace BusinessLogic
         /// <param name="workingDaysInMonth">Рабочих дней в месяце</param>
         /// <param name="daysWorked">Отработано дней</param>
         public TariffPayment(string name, string surname, double salaryAccount, 
-            double tariff, int workingDaysInMonth, int daysWorked) : base(name, surname, salaryAccount)
+             int daysWorked , int workingDaysInMonth, double tariff) : base(name, surname, salaryAccount)
         {
-            Tariff = tariff;
-            WorkingDaysInMonth = workingDaysInMonth;
             DaysWorked = daysWorked;
+            WorkingDaysInMonth = workingDaysInMonth;
+            Tariff = tariff;
         }
 
-        /// <summary>
-        /// XML конструктор
-        /// </summary>
-        protected TariffPayment()
-        {
-
-        }
+        
 
         /// <summary>
         /// Расчет тарифной зарплаты
@@ -84,7 +83,7 @@ namespace BusinessLogic
         /// <param name="workingDaysInMonth">Всего рабочих дней в месяце</param>
         private static void ValidDaysWorked(int daysWorked, int workingDaysInMonth)
         {
-            /*if (daysWorked > workingDaysInMonth)
+            /*if (workingDaysInMonth < daysWorked)
             {
                 throw new ArgumentException("Рабочих дней больше, " +
                                             "чем рабочих дней в месяце!");

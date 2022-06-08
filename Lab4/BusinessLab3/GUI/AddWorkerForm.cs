@@ -82,7 +82,7 @@ namespace GUI
                     break;
                 case _tariffPaymentItem:
                     WorkerSending = new TariffPayment(NameBox.Text, SurnameBox.Text, 0,
-                        Convert.ToDouble(TariffBox.Text), 
+                        Convert.ToInt32(TariffBox.Text), 
                         Convert.ToInt32(MonthWorkedDaysNumeric.Text), 
                         Convert.ToInt32(DaysWorkedTariffNumeric.Text));
                     break;
