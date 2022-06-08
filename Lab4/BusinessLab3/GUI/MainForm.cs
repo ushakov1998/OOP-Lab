@@ -50,6 +50,7 @@ namespace GUI
         {
             DataGridWorkers.DataSource = null;
             DataGridWorkers.DataSource = _workersList;
+            DataGridWorkers.Columns[2].ReadOnly = true;
         }
 
         /// <summary>
